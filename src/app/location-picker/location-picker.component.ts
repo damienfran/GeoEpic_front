@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../Models/User';
+import { Client } from '../Models/Client';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-location-picker',
@@ -7,7 +7,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./location-picker.component.css']
 })
 export class LocationPickerComponent implements OnInit {
-  @Input() currentUser:User;
+  @Input() currentUser:Client;
   // treasureLocation:string;
   showTreasuresList:boolean = false;
   showLocationMenu:boolean = true;

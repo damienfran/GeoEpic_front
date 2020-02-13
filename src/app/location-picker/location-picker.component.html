@@ -35,7 +35,7 @@
         <div class="col-sm-6 block"  *ngIf = "showTreasureMap">
             <h3>{{currentHint}}</h3>
             <img src="assets/images/pokebox2.png" height="100px" (click) = "treasureBoxFound()" >
-            <div *ngIf = "currentUser.is_Manager">
+            <div *ngIf = "currentUser.manager">
                 <button class="btn btn-primary"(click) = "editLocationCoordinates()">Edit Location Coordinates</button>
              </div>
         </div>
@@ -67,7 +67,7 @@
         <!-- <tr><td><button id=box class="btn" (click) = "treasureBoxFound()">Found Treasure Box !!!</button></td></tr> -->
         <!-- <tr>
             <td><img id="box" src="assets/images/pokebox2.png"(click) = "treasureBoxFound()" ></td>
-            <td *ngIf = "currentUser.is_Manager">
+            <td *ngIf = "currentUser.manager">
                 <button (click) = "editLocationCoordinates()">Edit Location Coordinates</button>
             </td>
  

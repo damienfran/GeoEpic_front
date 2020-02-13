@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../Models/User';
+import { Client } from '../Models/Client';
 
 @Component({
   selector: 'app-treasures-list',
@@ -9,7 +9,7 @@ import { User } from '../Models/User';
 export class TreasuresListComponent implements OnInit {
 
   @Input() locationNumber:number;
-  @Input() currentUser:User;
+  @Input() currentUser:Client;
 
   treasures:Array<string> = [];
   showTreasures:boolean = false;

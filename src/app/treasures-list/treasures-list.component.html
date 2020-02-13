@@ -9,7 +9,7 @@
         {{treasure}}
         <button (click) = "swapTreasure()">SWAP Treasure</button>
     </li>
-    <li *ngIf = "currentUser.is_Manager">
+    <li *ngIf = "currentUser.manager">
         <button (click) = "addTreasure()">Add Treasure</button>
         <button (click) = "removeTreasure()">Remove Treasure</button>
     </li>

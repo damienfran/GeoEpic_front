@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../Models/User';
+import { Client } from '../Models/Client';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   infoManager:string;
   isManager:boolean;
   loginSuccessful:boolean = false;
-  currentUser:User;
+  currentUser:Client;
   showLogout:boolean = false;
   
   constructor() { }
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       this.isManager = false;
     }
 
-    this.currentUser = new User(0,this.usernm,this.userpassword,this.isManager);
+    this.currentUser = new Client(0,this.usernm,this.userpassword,0,this.isManager);
 
     console.log(this.currentUser);
 

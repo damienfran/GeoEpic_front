@@ -1,0 +1,53 @@
+footer{
+    margin-left: 20px;
+    margin-top: 40px;
+    padding-bottom: 1px;
+    color: darkblue;
+}
+
+/* body{
+    background-color: chartreuse;
+} */
+
+.tiled{
+    /* background-image: url("/src/assests/images/pokemon-go-wallpaper-pokeball-png.jpg"); */
+    background-size: 50px;
+    background-repeat: repeat-x;
+    height: 30px;
+}
+.jumbotron{
+    background-color: burlywood;
+}
+.container{
+    /* background-color: aqua; */
+    text-align: center;
+    
+}
+
+.input-group-text{
+    background-color: bisque;
+    color: slategray;
+}
+
+.btn{
+    background-color: bisque;
+    color: slategray;
+}
+
+#check{
+    text-align: center;
+    margin-left: 25px;
+}
+
+#backdrop{
+    background-image: url("src/assets/images/forest.png");
+    background-size: cover;
+}
+
+#right{
+    margin-right: -200px;
+}
+
+.low{
+    margin-top: 70px;
+}

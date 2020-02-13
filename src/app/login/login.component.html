@@ -1,0 +1,96 @@
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+</head>
+
+<div id=backdrop class="jumbotron jumbotron-fluid">
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <div >
+                    <h1 class="display-4">GEO EPIC</h1>
+                    <p class="lead">Find Poke Items,  Gain Revature Points</p>
+                    <hr class="my-4">
+
+                </div>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-sm-4 low" *ngIf = "loginSuccessful == false">
+                    <img src="assets/images/MaleTrainer.png" height="300px">
+                </div>
+                <div class="col-sm-4">
+                
+                    <div id="check" *ngIf = "loginSuccessful == false">
+                      
+                            <h2>Start Exploring!</h2>
+                        
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <p class="input-group-text" id="basic-addon1">Username</p>
+                                </div>
+                                <input class="form-control" type="text" [(ngModel)] = "usernm">
+                                
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <p class="input-group-text" id="basic-addon1">Password</p>
+                                </div>
+                                <input  class="form-control" type="password" [(ngModel)] = "userpassword">
+                                
+                            </div>
+                            <div id="longer" class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <p class="input-group-text" id="basic-addon1">Is manager?(TRUE/FALSE)</p>
+                                </div>
+                                <input class="form-control" type="text" [(ngModel)] = "infoManager">
+                                
+                            </div>
+                           
+                            
+                            <button class="btn" (click) = "submit()">Submit</button>
+                    
+                    </div>
+                    
+                        
+                    
+                </div>
+                <div class="col-sm-4 low" *ngIf = "loginSuccessful == false">
+                    <img src="assets/images/FemaleExplore.png" height="300px">
+    
+                </div>
+            </div>
+         
+    </div>
+    
+</div>
+
+
+<div class="col-sm-2">
+                <div *ngIf = "showLogout">
+                    <button id="right" class="btn btn-primary" (click) = "doLogout()">Logout</button>
+                    
+                    </div>
+            </div>
+
+
+<div *ngIf = "loginSuccessful">
+
+    <app-location-picker
+        [currentUser] = "currentUser">
+
+    </app-location-picker>
+
+
+</div>
+<footer >
+    <p>&copy; BitByte Inc.</p>
+</footer>
+<div class="tiled">
+    
+</div>
+
+
+</html>

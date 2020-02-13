@@ -5,15 +5,17 @@
     
 </head>
 
-<div id=backdrop class="jumbotron jumbotron-fluid">
+<div id=backdrop class="jumbotron jumbotron-fluid" *ngIf = "loginSuccessful == false">
     <div class="container container-fluid">
         <div class="row">
             <div class="col-sm-4">
                 <div >
-                    <h1 class="display-4">GEO EPIC</h1>
-                    <p class="lead">Find Poke Items,  Gain Revature Points</p>
-                    <hr class="my-4">
-
+                    <div  *ngIf = "loginSuccessful == false">
+                        <h1 class="display-4">GEO EPIC</h1>
+                        <p class="lead">Find Poke Items,  Gain Revature Points</p>
+                        <hr class="my-4">
+                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -66,14 +68,23 @@
     </div>
     
 </div>
-
-
-<div class="col-sm-2">
+<div class="container"  *ngIf = "showLogout">
+    <div class="row">
+        <div class="col-sm-4">
+            <nav class="navbar">
+                <div class="navbar-brand">
+                  GeoEpic
+                 
+                </div>
                 <div *ngIf = "showLogout">
-                    <button id="right" class="btn btn-primary" (click) = "doLogout()">Logout</button>
+                    <button  class="btn btn-sm btn-primary" (click) = "doLogout()">Logout</button>
                     
                     </div>
-            </div>
+              </nav>
+        </div>
+    </div>
+</div>
+
 
 
 <div *ngIf = "loginSuccessful">
@@ -88,9 +99,7 @@
 <footer >
     <p>&copy; BitByte Inc.</p>
 </footer>
-<div class="tiled">
-    
-</div>
+
 
 
 </html>

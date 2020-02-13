@@ -1,13 +1,12 @@
 footer{
     margin-left: 20px;
-    margin-top: 40px;
-    padding-bottom: 1px;
-    color: darkblue;
+    margin-top: 10px;
+   
+    color: blue;
+    position: absolute;
+   
 }
 
-/* body{
-    background-color: chartreuse;
-} */
 
 .tiled{
     /* background-image: url("/src/assests/images/pokemon-go-wallpaper-pokeball-png.jpg"); */
@@ -20,6 +19,7 @@ footer{
 }
 .container{
     /* background-color: aqua; */
+    /* margin-top: -20px; */
     text-align: center;
     
 }
@@ -50,4 +50,8 @@ footer{
 
 .low{
     margin-top: 70px;
+}
+
+.navbar{
+    background-color: aquamarine;
 }

@@ -1,13 +1,27 @@
-img{
-    height: 300px;
-    
+.rotom{
+    position: absolute;
+
+    z-index: 1;
 }
+
+.map{
+    position: absolute;
+    z-index: 3;
+    top: 370px;
+    left:200px;
+}
+
+.block{
+    text-align: center;
+}
+
 
 #box{
     height: 100px;
  }
 .table{
-    /* background-color: royalblue; */
+    background-color: lightgreen;
+    border-radius: 10px;
     /* padding-right: -10px; */
 }
 .jumbotron{
@@ -19,8 +33,9 @@ img{
 }
 
 .btn{
-    
+    background-color: bisque;
     margin: 10px 60px;
+    color: slategray;
 }
 
 .nav-item{

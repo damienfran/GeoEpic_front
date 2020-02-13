@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LocationPickerComponent } from './location-picker/location-picker.component';
 import { TreasuresListComponent } from './treasures-list/treasures-list.component';
+import { TestingComponent } from './testing/testing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LocationPickerComponent,
-    TreasuresListComponent
+    TreasuresListComponent,
+    TestingComponent
   ],
   imports: [
     BrowserModule,

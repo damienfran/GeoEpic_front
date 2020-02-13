@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../Models/Client';
-
+import { Config } from '../Models/Config';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
+    console.log("Location of server: " + Config.server);
   }
 
   submit(){

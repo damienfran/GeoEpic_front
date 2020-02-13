@@ -35,6 +35,18 @@ export class GeoServicesService {
     return this.http.post<Client>('http://localhost:8080/login', c, {headers}).toPromise();
   }
 
+  createClient(c:Client):Promise<Client>{
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Vary', "Origin");
+    headers.append('Vary', "Access-Control-Request-Method");
+    headers.append('Vary',"Access-Control-Request-Headers");
+    
+    headers.append('Content-Type', 'application/json');
 
+    return this.http.post<Client>('http://localhost:8080/createClient', c, {headers}).toPromise();
+
+
+
+  }
 
 }

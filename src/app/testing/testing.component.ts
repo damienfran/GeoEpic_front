@@ -39,10 +39,15 @@ export class TestingComponent implements OnInit {
   }
 
   async createClientTest(){
+    let c:Client  = new Client(0,"test1","test1pass",0,false);
+
+    let tempc:Client = await this.gss.createClient(c);
+    c = tempc;
+
+    console.log(c);
 
 
 
-    
   }
 
 

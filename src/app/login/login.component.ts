@@ -40,9 +40,19 @@ export class LoginComponent implements OnInit {
   }
 
   async addNewUser(){
+    let c:Client = new Client(0,this.usernm,this.userpassword,0,false);
+
+    let tempc:Client = await this.gss.createClient(c);
+    this.currentUser = tempc;
+
+    console.log(this.currentUser);
 
 
-    
+    this.loginSuccessful = true;
+    this.showLogout = true;
+
+
+
   }
 
   doLogout(){
@@ -52,7 +62,7 @@ export class LoginComponent implements OnInit {
 
     this.usernm = "";
     this.userpassword = "";
-    this.infoManager = "";
+    // this.infoManager = "";
 
   }
 }

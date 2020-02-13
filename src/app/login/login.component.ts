@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../Models/Client';
 import { Config } from '../Models/Config';
+import { GeoServicesService } from '../geo-services.service'
 
 @Component({
   selector: 'app-login',
@@ -12,27 +13,24 @@ export class LoginComponent implements OnInit {
 
   usernm:string;
   userpassword:string;
-  infoManager:string;
-  isManager:boolean;
+  // infoManager:string;
+  // isManager:boolean;
   loginSuccessful:boolean = false;
   currentUser:Client;
   showLogout:boolean = false;
   
-  constructor() { }
+  constructor(private gss:GeoServicesService) { }
 
 
   ngOnInit() {
     console.log("Location of server: " + Config.server);
   }
 
-  submit(){
-    if (this.infoManager.toLowerCase() == 'true'){
-      this.isManager = true;
-    }else{
-      this.isManager = false;
-    }
+  async submit(){
+    let c:Client = new Client(0,this.usernm,this.userpassword,0,false);
 
-    this.currentUser = new Client(0,this.usernm,this.userpassword,0,this.isManager);
+    let tempc:Client = await this.gss.login(c);
+    this.currentUser = tempc;
 
     console.log(this.currentUser);
 
@@ -41,6 +39,11 @@ export class LoginComponent implements OnInit {
     this.showLogout = true;
   }
 
+  async addNewUser(){
+
+
+    
+  }
 
   doLogout(){
     this.loginSuccessful = false;

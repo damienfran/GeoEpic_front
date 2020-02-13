@@ -2,6 +2,6 @@
 
 export class Config{
 
-    static server:string = "localhost:4200";
+    static server:string = "http://localhost:8080";
 
 }

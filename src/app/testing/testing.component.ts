@@ -1,30 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { GetAllClientsService } from '../../GeoServices/get-all-clients.service'
 import { Client } from '../Models/Client'
+import { GeoServicesService } from '../geo-services.service'
 
 @Component({
   selector: 'app-testing',
   templateUrl: './testing.component.html',
   styleUrls: ['./testing.component.css']
 })
+
 export class TestingComponent implements OnInit {
 
   allClients:Client[];
 
-  constructor(private gacs:GetAllClientsService) { }
+  constructor(private gss:GeoServicesService) { }
 
   ngOnInit() {
   }
 
   async test1(){
 
-    // let inputdeck:smallDeck = await this.gcs.getACard();
-    // this.oneCardDeck = inputdeck;
+    let inputdata:Client[] = await this.gss.getAllClients();
+    let temp:Client[] = inputdata;
 
-    let inputdata:string = await this.gacs.getAllTheClients();
-    // this.allClients = inputdata;
+    console.log(temp);
+    console.log(temp[0].username);
 
-    console.log(inputdata);
+
+
   }
+
+  
+
+
 }

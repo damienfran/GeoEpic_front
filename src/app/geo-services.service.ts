@@ -146,6 +146,16 @@ export class GeoServicesService {
     headers.append('Content-Type', 'application/json');
     return this.http.post<Location>(`${Config.server}/updateLocation`, L,{headers}).toPromise();
 
+  }
+
+  createItem(I:Item):Promise<Item>{
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Vary', "Origin");
+    headers.append('Vary', "Access-Control-Request-Method");
+    headers.append('Vary',"Access-Control-Request-Headers");
+    
+    headers.append('Content-Type', 'application/json');
+    return this.http.post<Item>(`${Config.server}/createItem`, I, {headers}).toPromise();
 
   }
 

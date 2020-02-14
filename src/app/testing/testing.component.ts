@@ -148,4 +148,13 @@ export class TestingComponent implements OnInit {
     Loc = t2;
     console.log(Loc);
   }
+
+  async createItemTest(){
+    let I:Item = new Item(0,"Test Haha","Testing Haha",40, null,null);
+    let tempI:Item = await this.gss.createItem(I);
+    I = tempI;
+
+    console.log(I);
+
+  }
 }

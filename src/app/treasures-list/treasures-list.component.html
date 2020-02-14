@@ -13,6 +13,9 @@
         <td>
             <h3>Your Treasure Inventory:</h3>
         </td>
+        <td>
+            <h3>Your Score:</h3>
+        </td>
     </tr>
 
     <tr>
@@ -31,6 +34,9 @@
                     <button (click) = "swapUserItem(anItem)">SWAP {{anItem.name}}</button>
                 </li>
             </ul>
+        </td>
+        <td>
+            
         </td>
     </tr>
     <tr *ngIf = "currentUser.manager">
@@ -55,6 +61,25 @@
 
 
 
+<div *ngIf = "addTreasureMenu">
+    Name:
+    <input type="text" [(ngModel)] = "name">
+    Description:
+    <input type="text" [(ngModel)] = "description">
+    Value:
+    <input type="text" [(ngModel)] = "value">
+    <button (click) = "addTreasureToBox()">Add Treasure</button>
+
+</div>
+
+<!-- <div *ngIf = "removeTreasureMenu">
+    <ul>
+        <li *ngFor = "let anItem of userItems">
+            {{anItem.name}}:{{anItem.description}}
+            <button (click) = "swapUserItem(anItem)">SWAP {{anItem.name}}</button>
+        </li>
+    </ul>
+</div> -->
 
 
 

@@ -21,7 +21,12 @@ export class TreasuresListComponent implements OnInit {
   userSwapItem:Item = null;
   showTreasures:boolean = false;
   readyForSwap:boolean = false;
+  addTreasureMenu:boolean = false;
+  removeTreasureMenu:boolean = false;
 
+  name:string;
+  description:string;
+  value:number;
 
 
   constructor(private gss:GeoServicesService) { }
@@ -53,6 +58,12 @@ export class TreasuresListComponent implements OnInit {
     this.populateTreasureList();
     this.populateUserItems();
     this.showTreasures=true;
+    this.addTreasureMenu = false;
+    this.removeTreasureMenu = false;
+
+    this.name = "";
+    this.description = "";
+    this.value = 0;
   }
 
   swapTreasure(T:Item){
@@ -105,7 +116,19 @@ export class TreasuresListComponent implements OnInit {
   }
 
   addTreasure(){
-    //put code here
+    this.addTreasureMenu = true;
+  }
+
+  async addTreasureToBox(){
+    let newTreasure:Item = new Item(0,this.name,this.description,this.value,null,this.currentLocation);
+
+    let TempI:Item = await this.gss.createItem(newTreasure);
+    newTreasure = TempI;
+
+    console.log(newTreasure);
+    alert("Treasure successfully added: " + newTreasure.name);
+    this.ngOnInit();
+
   }
 
   removeTreasure(){

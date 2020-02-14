@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Client } from '../app/Models/Client';
 import { Config } from './Models/Config';
 import { ILocation } from './Models/ILocation';
+import { Item } from './Models/Item';
 
 @Injectable({
   providedIn: 'root'
@@ -68,6 +69,49 @@ export class GeoServicesService {
     
     headers.append('Content-Type', 'application/json');
     return this.http.get<ILocation[]>(`${Config.server}/getAllLocations`,{headers}).toPromise();
+  }
+
+  getItemsForLocation(L:ILocation):Promise<Item[]>{
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Vary', "Origin");
+    headers.append('Vary', "Access-Control-Request-Method");
+    headers.append('Vary',"Access-Control-Request-Headers");
+    
+    headers.append('Content-Type', 'application/json');
+    return this.http.post<Item[]>(`${Config.server}/getItemsForLocation`, L,{headers}).toPromise();
+  }
+
+  getItemsForClient(C:Client):Promise<Item[]>{
+
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Vary', "Origin");
+    headers.append('Vary', "Access-Control-Request-Method");
+    headers.append('Vary',"Access-Control-Request-Headers");
+    
+    headers.append('Content-Type', 'application/json');
+    return this.http.post<Item[]>(`${Config.server}/getItemsForClient`, C,{headers}).toPromise();
+  
+
+  }
+
+  getItemById(I:Item):Promise<Item>{
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Vary', "Origin");
+    headers.append('Vary', "Access-Control-Request-Method");
+    headers.append('Vary',"Access-Control-Request-Headers");
+    
+    headers.append('Content-Type', 'application/json');
+    return this.http.post<Item>(`${Config.server}/getItemById`, I, {headers}).toPromise();
+  }
+
+  updateItem(I:Item):Promise<Item>{
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Vary', "Origin");
+    headers.append('Vary', "Access-Control-Request-Method");
+    headers.append('Vary',"Access-Control-Request-Headers");
+    
+    headers.append('Content-Type', 'application/json');
+    return this.http.post<Item>(`${Config.server}/updateItem`, I, {headers}).toPromise();
   }
 
 }

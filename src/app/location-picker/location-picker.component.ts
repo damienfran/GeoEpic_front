@@ -17,8 +17,9 @@ export class LocationPickerComponent implements OnInit {
   showTreasuresList:boolean = false;
   showLocationMenu:boolean = true;
   showTreasureMap:boolean = false;
-  locationNumber:number = 0;
+  // locationNumber:number = 0;
 
+  currentLocation:ILocation = null;
   theLocations:ILocation[];
 
   currentHint:string;
@@ -62,7 +63,10 @@ export class LocationPickerComponent implements OnInit {
     
 
     this.showTreasureMap = true;
-    this.locationNumber = 1;
+    
+    // this.locationNumber = 1;
+    this.currentLocation = this.theLocations[0];
+
     this.currentHint = this.theLocations[0].clue;
   }
 
@@ -72,7 +76,11 @@ export class LocationPickerComponent implements OnInit {
     this.updateMapURL();
 
     this.showTreasureMap = true;
-    this.locationNumber = 2;
+
+    // this.locationNumber = 2;
+    this.currentLocation = this.theLocations[1];
+
+
     this.currentHint = this.theLocations[1].clue;
   }
 
@@ -82,7 +90,10 @@ export class LocationPickerComponent implements OnInit {
     this.updateMapURL();
 
     this.showTreasureMap = true;
-    this.locationNumber = 3;
+
+    // this.locationNumber = 3;
+    this.currentLocation = this.theLocations[2];
+    
     this.currentHint = this.theLocations[2].clue;
   }
 
@@ -92,7 +103,10 @@ export class LocationPickerComponent implements OnInit {
     this.updateMapURL();
 
     this.showTreasureMap = true;
-    this.locationNumber = 4;
+
+    // this.locationNumber = 4;
+    this.currentLocation = this.theLocations[3];
+
     this.currentHint = this.theLocations[3].clue;
   }
 

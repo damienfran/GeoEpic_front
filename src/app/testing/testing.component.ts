@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Client } from '../Models/Client'
 import { GeoServicesService } from '../geo-services.service'
 import { ILocation } from '../Models/ILocation';
+import { Item } from '../Models/Item';
 
 @Component({
   selector: 'app-testing',
@@ -64,6 +65,48 @@ export class TestingComponent implements OnInit {
 
     console.log(temp);
     console.log(temp[0].clue);
+
+  }
+
+  async getItemsForLocationTest(){
+    let L:ILocation = new ILocation(1, "","");
+
+    let tempL:Item[] = await this.gss.getItemsForLocation(L);
+    let items:Item[] = tempL;
+
+    console.log(items);
+    console.log(items[0].name);
+  }
+
+  async getItemsForClientTest(){
+    let C:Client = new Client(1,"","",0,false);
+    let tempL:Item[] = await this.gss.getItemsForClient(C);
+    let items:Item[] = tempL;
+
+    console.log(items);
+    console.log(items[0].name);    
+  }
+
+  async getItemByIdTest(){
+    let I:Item = new Item(1,"","",0,null,null);
+
+    let tempI:Item = await this.gss.getItemById(I);
+    I = tempI;
+    console.log(I);
+
+  }
+
+
+
+  async updateItemTest(){
+    let I:Item = new Item(28,"","",0,null,null);
+    let tempI:Item = await this.gss.getItemById(I);
+    I = tempI;
+
+    I.description = "Another Test";
+    tempI = await this.gss.updateItem(I);
+    I = tempI;
+    console.log(I);
 
   }
 

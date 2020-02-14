@@ -1,20 +1,56 @@
 
 
-<button (click) = "revealTreasureInventory()">Reveal Treasure Inventory</button>
 
 <div *ngIf = "showTreasures">
-<h3>Treasures in box {{locationNumber}}:</h3>
-<ul>
-    <li *ngFor = "let treasure of treasures">
-        {{treasure}}
-        <button (click) = "swapTreasure()">SWAP Treasure</button>
-    </li>
-    <li *ngIf = "currentUser.manager">
+
+
+
+<table>
+    <tr>
+        <td>
+            <h3>Treasures in box {{currentLocation.lId}}:</h3>
+        </td>
+        <td>
+            <h3>Your Treasure Inventory:</h3>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <ul>
+                <li *ngFor = "let treasure of treasures">
+                    {{treasure.name}}:{{treasure.description}}
+                    <button (click) = "swapTreasure(treasure)">SWAP {{treasure.name}}</button>
+                </li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li *ngFor = "let anItem of userItems">
+                    {{anItem.name}}:{{anItem.description}}
+                    <button (click) = "swapUserItem(anItem)">SWAP {{anItem.name}}</button>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    <tr *ngIf = "currentUser.manager">
         <button (click) = "addTreasure()">Add Treasure</button>
         <button (click) = "removeTreasure()">Remove Treasure</button>
-    </li>
+    </tr>
+</table>
 
-</ul>
+
+
+</div>
+
+<div *ngIf = "readyForSwap">
+    <h3>SWAP Ready</h3>
+    <br>
+    <h5>Item from Box:{{boxSwapItem.name}}:{{boxSwapItem.description}}</h5>
+    <br>
+    <h5>Your Item:{{userSwapItem.name}}:{{userSwapItem.description}}</h5>
+    <br>
+    <button (click) = "doSwap()">Do Swap!</button>
 </div>
 
 

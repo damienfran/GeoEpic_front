@@ -37,8 +37,13 @@
             <h3>{{currentHint}}</h3>
             <img src="assets/images/pokebox2.png" height="100px" (click) = "treasureBoxFound()" >
             <div *ngIf = "currentUser.manager">
-                <button class="btn btn-primary"(click) = "editLocationCoordinates()">Edit Location Coordinates</button>
-             </div>
+                <button (click) = "editLocationCoordinates()">Edit Location Coordinates</button>
+            </div>
+            <div *ngIf = "editTreasureLocation">
+                <input type="text" [(ngModel)] = "newLocationInput">
+                <button (click) = "submitCoordinates()">Submit Coordinates</button>
+            </div>
+ 
         </div>
     </div>
 

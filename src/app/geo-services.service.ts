@@ -137,5 +137,16 @@ export class GeoServicesService {
 
   }
 
+  updateLocation(L:Location):Promise<Location>{
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Vary', "Origin");
+    headers.append('Vary', "Access-Control-Request-Method");
+    headers.append('Vary',"Access-Control-Request-Headers");
+    
+    headers.append('Content-Type', 'application/json');
+    return this.http.post<Location>(`${Config.server}/updateLocation`, L,{headers}).toPromise();
+
+
+  }
 
 }

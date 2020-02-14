@@ -138,4 +138,14 @@ export class TestingComponent implements OnInit {
 
   }
 
+  async updateLocationTest(){
+    let Loc:Location = new Location(10,"","");
+    let tempLoc:Location = await this.gss.getLocationById(Loc);
+    Loc = tempLoc;
+
+    Loc.geoLocation = "45678";
+    let t2:Location = await this.gss.updateLocation(Loc);
+    Loc = t2;
+    console.log(Loc);
+  }
 }

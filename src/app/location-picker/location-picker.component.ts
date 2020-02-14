@@ -17,15 +17,15 @@ export class LocationPickerComponent implements OnInit {
   showTreasuresList:boolean = false;
   showLocationMenu:boolean = true;
   showTreasureMap:boolean = false;
-  // locationNumber:number = 0;
-
+  editTreasureLocation:boolean = false;
+  
+  newLocationInput:string;
   currentLocation:Location = null;
   theLocations:Location[];
 
   currentHint:string;
   key:string = "AIzaSyCucQ06qPPCTCDsw7SMCAAVGNWA7WdnHwk";
   locCoord:string;
-  // testLocation:string;
   name = 'Set iframe source';
   url: string = "https://www.google.com/maps/embed/v1/place?q=39.631979,-79.953752&key=AIzaSyCucQ06qPPCTCDsw7SMCAAVGNWA7WdnHwk";
   urlSafe: SafeResourceUrl;
@@ -42,6 +42,7 @@ export class LocationPickerComponent implements OnInit {
     this.showLocationMenu = true;
     this.showTreasuresList = false;
     this.showTreasureMap = false;
+    this.editTreasureLocation = false;
 
     this.initializeLocations();
     
@@ -116,6 +117,21 @@ export class LocationPickerComponent implements OnInit {
   }
 
   editLocationCoordinates(){
-    // code here later
+    this.editTreasureLocation = true;
+  }
+
+  async submitCoordinates(){
+    console.log(this.currentLocation.geoLocation);
+    this.currentLocation.geoLocation = this.newLocationInput;
+    console.log(this.currentLocation.geoLocation);
+
+    let tempC:Location = await this.gss.updateLocation(this.currentLocation);
+    console.log(this.currentLocation.geoLocation);
+
+    this.currentLocation = tempC;
+
+    alert("Location updated to " + this.currentLocation.geoLocation);
+    this.newLocationInput = "";
+    this.editTreasureLocation = false;
   }
 }

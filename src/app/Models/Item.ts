@@ -1,5 +1,5 @@
 import { Client } from "./Client";
-import { ILocation } from "./ILocation";
+import { Location } from "./Location";
 
 
 export class Item{
@@ -9,15 +9,15 @@ export class Item{
     description:string;
     value:number;
     client:Client;
-    ilocation:ILocation; // Location meant something else, so use ILocation
+    location:Location; // Location meant something else, so use ILocation
 
-    constructor(iId:number, name:string, description:string, value:number, client:Client, ilocation:ILocation){
+    constructor(iId:number, name:string, description:string, value:number, client:Client, location:Location){
         this.iId = iId;
         this.name = name;
         this.description = description;
         this.value = value;
         this.client = client;
-        this.ilocation = ilocation;
+        this.location = location;
     }
 
 }

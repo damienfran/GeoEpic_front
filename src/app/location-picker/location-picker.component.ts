@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Client } from '../Models/Client';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { ILocation } from '../Models/ILocation';
+import { Location } from '../Models/Location';
 import { GeoServicesService } from '../geo-services.service'
 
 
@@ -19,8 +19,8 @@ export class LocationPickerComponent implements OnInit {
   showTreasureMap:boolean = false;
   // locationNumber:number = 0;
 
-  currentLocation:ILocation = null;
-  theLocations:ILocation[];
+  currentLocation:Location = null;
+  theLocations:Location[];
 
   currentHint:string;
   key:string = "AIzaSyCucQ06qPPCTCDsw7SMCAAVGNWA7WdnHwk";
@@ -48,7 +48,7 @@ export class LocationPickerComponent implements OnInit {
   }
 
   async initializeLocations(){
-    let inputdata:ILocation[] = await this.gss.getAllLocations();
+    let inputdata:Location[] = await this.gss.getAllLocations();
     this.theLocations = inputdata;
 
     console.log(this.theLocations[0].geoLocation);

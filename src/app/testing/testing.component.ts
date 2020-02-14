@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../Models/Client'
 import { GeoServicesService } from '../geo-services.service'
-import { ILocation } from '../Models/ILocation';
+import { Location } from '../Models/Location';
 import { Item } from '../Models/Item';
 
 @Component({
@@ -50,9 +50,9 @@ export class TestingComponent implements OnInit {
   }
 
   async getLocationByIdTest(){
-    let L:ILocation = new ILocation(1, "","");
+    let L:Location = new Location(1, "","");
 
-    let tempL:ILocation = await this.gss.getLocationById(L);
+    let tempL:Location = await this.gss.getLocationById(L);
     L = tempL;
 
     console.log(L);
@@ -60,8 +60,8 @@ export class TestingComponent implements OnInit {
   }
 
   async getAllLocationsTest(){
-    let inputdata:ILocation[] = await this.gss.getAllLocations();
-    let temp:ILocation[] = inputdata;
+    let inputdata:Location[] = await this.gss.getAllLocations();
+    let temp:Location[] = inputdata;
 
     console.log(temp);
     console.log(temp[0].clue);
@@ -69,7 +69,7 @@ export class TestingComponent implements OnInit {
   }
 
   async getItemsForLocationTest(){
-    let L:ILocation = new ILocation(1, "","");
+    let L:Location = new Location(1, "","");
 
     let tempL:Item[] = await this.gss.getItemsForLocation(L);
     let items:Item[] = tempL;
@@ -99,14 +99,42 @@ export class TestingComponent implements OnInit {
 
 
   async updateItemTest(){
+    //get item
     let I:Item = new Item(28,"","",0,null,null);
     let tempI:Item = await this.gss.getItemById(I);
     I = tempI;
 
-    I.description = "Another Test";
+    //get location
+    let L:Location = new Location(1, "","");
+
+    let tempL:Location = await this.gss.getLocationById(L);
+    L = tempL;
+
+
+
+    I.location = L;
+    I.client = null;
+    console.log(I);
     tempI = await this.gss.updateItem(I);
     I = tempI;
     console.log(I);
+
+  }
+
+  async updateClientTest(){
+    let c:Client = new Client(25,"tempc","tempcpass",0,false);
+    let tempc:Client = await this.gss.updateClient(c);
+    c = tempc;
+
+    console.log(c);
+  }
+
+  async getClientByIdTest(){
+    let c:Client = new Client(25,"","",0,false);
+    let tempc:Client = await this.gss.getClientById(c);
+    c = tempc;
+
+    console.log(c);
 
   }
 

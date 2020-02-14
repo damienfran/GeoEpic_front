@@ -1,7 +1,7 @@
 
 //this is called ILocation, instead of Location, because Location already meant something else
 
-export class ILocation{
+export class Location{
     lId:number;
     clue:string;
     geoLocation:string;

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Client } from '../app/Models/Client';
 import { Config } from './Models/Config';
-import { ILocation } from './Models/ILocation';
+import { Location } from './Models/Location';
 import { Item } from './Models/Item';
 
 @Injectable({
@@ -50,7 +50,7 @@ export class GeoServicesService {
   }
 
 
-  getLocationById(L:ILocation):Promise<ILocation>{
+  getLocationById(L:Location):Promise<Location>{
     let headers: HttpHeaders = new HttpHeaders();
     headers.append('Vary', "Origin");
     headers.append('Vary', "Access-Control-Request-Method");
@@ -58,20 +58,20 @@ export class GeoServicesService {
     
     headers.append('Content-Type', 'application/json');
 
-    return this.http.post<ILocation>(`${Config.server}/getLocationById`, L, {headers}).toPromise();
+    return this.http.post<Location>(`${Config.server}/getLocationById`, L, {headers}).toPromise();
   }
 
-  getAllLocations():Promise<ILocation[]>{
+  getAllLocations():Promise<Location[]>{
     let headers: HttpHeaders = new HttpHeaders();
     headers.append('Vary', "Origin");
     headers.append('Vary', "Access-Control-Request-Method");
     headers.append('Vary',"Access-Control-Request-Headers");
     
     headers.append('Content-Type', 'application/json');
-    return this.http.get<ILocation[]>(`${Config.server}/getAllLocations`,{headers}).toPromise();
+    return this.http.get<Location[]>(`${Config.server}/getAllLocations`,{headers}).toPromise();
   }
 
-  getItemsForLocation(L:ILocation):Promise<Item[]>{
+  getItemsForLocation(L:Location):Promise<Item[]>{
     let headers: HttpHeaders = new HttpHeaders();
     headers.append('Vary', "Origin");
     headers.append('Vary', "Access-Control-Request-Method");
@@ -113,5 +113,29 @@ export class GeoServicesService {
     headers.append('Content-Type', 'application/json');
     return this.http.post<Item>(`${Config.server}/updateItem`, I, {headers}).toPromise();
   }
+
+  getClientById(C:Client):Promise<Client>{
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Vary', "Origin");
+    headers.append('Vary', "Access-Control-Request-Method");
+    headers.append('Vary',"Access-Control-Request-Headers");
+    
+    headers.append('Content-Type', 'application/json');
+    return this.http.post<Client>(`${Config.server}/getClientById`, C,{headers}).toPromise();
+
+  }
+
+  updateClient(C:Client):Promise<Client>{
+
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Vary', "Origin");
+    headers.append('Vary', "Access-Control-Request-Method");
+    headers.append('Vary',"Access-Control-Request-Headers");
+    
+    headers.append('Content-Type', 'application/json');
+    return this.http.post<Client>(`${Config.server}/updateClient`, C,{headers}).toPromise();
+
+  }
+
 
 }

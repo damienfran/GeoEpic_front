@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Client } from '../Models/Client';
 import { Item } from '../Models/Item';
-import { ILocation } from '../Models/ILocation';
+import { Location } from '../Models/Location';
 import { GeoServicesService } from '../geo-services.service'
 
 @Component({
@@ -11,7 +11,7 @@ import { GeoServicesService } from '../geo-services.service'
 })
 export class TreasuresListComponent implements OnInit {
 
-  @Input() currentLocation:ILocation;
+  @Input() currentLocation:Location;
   // @Input() locationNumber:number;
   @Input() currentUser:Client;
 
@@ -27,7 +27,7 @@ export class TreasuresListComponent implements OnInit {
   constructor(private gss:GeoServicesService) { }
 
   async populateTreasureList(){ // get items by current location
-    let L:ILocation = new ILocation(this.currentLocation.lId, "","");
+    let L:Location = new Location(this.currentLocation.lId, "","");
     let tempL:Item[] = await this.gss.getItemsForLocation(L);
     this.treasures = tempL;
 
@@ -77,21 +77,31 @@ export class TreasuresListComponent implements OnInit {
   //box item gets both owner and location
   async doSwap(){
     //update boxSwapItem
-    this.boxSwapItem.ilocation = null;
+    this.boxSwapItem.location = null;
     this.boxSwapItem.client = this.currentUser;
-  console.log("Box Item before update:" + this.boxSwapItem)
+
     let tempI:Item = await this.gss.updateItem(this.boxSwapItem);
     this.boxSwapItem = tempI;
-  console.log("Box Item after update : " + this.boxSwapItem);
+
+
+    
+
+
 
     //update userSwapItem
     this.userSwapItem.client = null;
-    this.userSwapItem.ilocation = this.currentLocation;
-  console.log("User Item before update: " + this.userSwapItem);
+    this.userSwapItem.location = this.currentLocation;
+
     let tempI2 = await this.gss.updateItem(this.userSwapItem);
     this.userSwapItem = tempI2;
-  console.log("User Item after update: " + this.userSwapItem);
 
+    //Update User's score
+    this.currentUser.score += this.userSwapItem.value;
+    let tempc:Client = await this.gss.updateClient(this.currentUser);
+    this.currentUser = tempc;
+
+    //reset screen
+    this.ngOnInit();
   }
 
   addTreasure(){

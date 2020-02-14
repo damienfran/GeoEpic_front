@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../Models/Client'
 import { GeoServicesService } from '../geo-services.service'
+import { ILocation } from '../Models/ILocation';
 
 @Component({
   selector: 'app-testing',
@@ -35,7 +36,6 @@ export class TestingComponent implements OnInit {
 
     console.log(c);
 
-
   }
 
   async createClientTest(){
@@ -46,9 +46,25 @@ export class TestingComponent implements OnInit {
 
     console.log(c);
 
+  }
 
+  async getLocationByIdTest(){
+    let L:ILocation = new ILocation(1, "","");
+
+    let tempL:ILocation = await this.gss.getLocationById(L);
+    L = tempL;
+
+    console.log(L);
 
   }
 
+  async getAllLocationsTest(){
+    let inputdata:ILocation[] = await this.gss.getAllLocations();
+    let temp:ILocation[] = inputdata;
+
+    console.log(temp);
+    console.log(temp[0].clue);
+
+  }
 
 }

@@ -33,7 +33,12 @@ export class LoginComponent implements OnInit {
     this.currentUser = tempc;
 
     console.log(this.currentUser);
-
+    if (this.currentUser == null){
+      alert("Incorrect Username/Password!");
+      this.usernm = "";
+      this.userpassword = "";
+      return;
+    }
 
     this.loginSuccessful = true;
     this.showLogout = true;
@@ -46,10 +51,13 @@ export class LoginComponent implements OnInit {
     this.currentUser = tempc;
 
     console.log(this.currentUser);
+    alert("Account successfully created. Please log in.");
+    this.usernm = "";
+    this.userpassword = "";
+    return;
 
-
-    this.loginSuccessful = true;
-    this.showLogout = true;
+    // this.loginSuccessful = true;
+    // this.showLogout = true;
 
 
 

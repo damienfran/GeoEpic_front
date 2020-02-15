@@ -116,6 +116,7 @@ export class TreasuresListComponent implements OnInit {
   }
 
   addTreasure(){
+    this.showTreasures = false;
     this.addTreasureMenu = true;
   }
 
@@ -132,7 +133,20 @@ export class TreasuresListComponent implements OnInit {
   }
 
   removeTreasure(){
-    //put code here
+    this.showTreasures = false;
+    this.removeTreasureMenu = true;
+  }
+
+  async removeFromBox(tres:Item){
+    tres.location = null;
+
+    let TempI:Item = await this.gss.updateItem(tres);
+    tres = TempI;
+
+    console.log(tres);
+    alert("Treasure successfully removed: " + tres.name);
+    this.ngOnInit();
+
   }
 
 }

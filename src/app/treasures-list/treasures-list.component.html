@@ -14,7 +14,7 @@
             <h3>Your Treasure Inventory:</h3>
         </td>
         <td>
-            <h3>Your Score:</h3>
+            
         </td>
     </tr>
 
@@ -36,7 +36,8 @@
             </ul>
         </td>
         <td>
-            
+            <h3>Your Score:</h3>
+            <h3>{{currentUser.score}}</h3>
         </td>
     </tr>
     <tr *ngIf = "currentUser.manager">
@@ -62,6 +63,7 @@
 
 
 <div *ngIf = "addTreasureMenu">
+    <h3>Add Treasure to Box</h3>
     Name:
     <input type="text" [(ngModel)] = "name">
     Description:
@@ -72,14 +74,15 @@
 
 </div>
 
-<!-- <div *ngIf = "removeTreasureMenu">
+<div *ngIf = "removeTreasureMenu">
+    <h3>Remove Treasure From Box</h3>
     <ul>
-        <li *ngFor = "let anItem of userItems">
-            {{anItem.name}}:{{anItem.description}}
-            <button (click) = "swapUserItem(anItem)">SWAP {{anItem.name}}</button>
+        <li *ngFor = "let treasure of treasures">
+            {{treasure.name}}:{{treasure.description}}
+            <button (click) = "removeFromBox(treasure)">Remove {{treasure.name}}</button>
         </li>
     </ul>
-</div> -->
+</div>
 
 
 

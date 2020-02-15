@@ -38,10 +38,6 @@
     color: slategray;
 }
 
-.nav-item{
-    margin: 20px, 0px;
-}
-
 #change:hover{
     src: url("/assets/images/pokeOpening2.gif");
     

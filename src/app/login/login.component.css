@@ -18,15 +18,14 @@ footer{
     background-repeat: repeat-x;
     height: 30px;
 }
-.jumbotron{
-    background-color: burlywood;
-}
+
 .container{
     /* background-color: aqua; */
     /* margin-top: -20px; */
     text-align: center;
     
 }
+
 
 .input-group-text{
     background-color: bisque;
@@ -48,9 +47,6 @@ footer{
     background-size: cover;
 }
 
-#right{
-    margin-right: -200px;
-}
 
 .low{
     margin-top: 70px;
@@ -58,4 +54,6 @@ footer{
 
 .navbar{
     background-color: aquamarine;
+    margin: 10px 20px;
+    border-radius: 10px;
 }

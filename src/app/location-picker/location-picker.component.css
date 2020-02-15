@@ -7,8 +7,8 @@
 .map{
     position: absolute;
     z-index: 3;
-    top: 370px;
-    left:200px;
+    top: 180px;
+    left:60px;
 }
 
 .block{
@@ -42,3 +42,7 @@
     margin: 20px, 0px;
 }
 
+#change:hover{
+    src: url("/assets/images/pokeOpening2.gif");
+    
+}

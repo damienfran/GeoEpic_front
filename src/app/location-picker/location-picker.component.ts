@@ -112,6 +112,7 @@ export class LocationPickerComponent implements OnInit {
   }
 
   treasureBoxFound(){
+    
     this.showTreasureMap = false;
     this.showTreasuresList = true;
   }

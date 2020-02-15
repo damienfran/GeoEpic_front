@@ -3,10 +3,14 @@ footer{
     margin-top: 10px;
    
     color: blue;
-    position: absolute;
-   
+    /* position: absolute; */
+    /* position: fixed; */
+    bottom: 0;
 }
 
+.wide{
+    width: 100%;
+}
 
 .tiled{
     /* background-image: url("/src/assests/images/pokemon-go-wallpaper-pokeball-png.jpg"); */

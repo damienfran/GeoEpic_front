@@ -1,4 +1,8 @@
+<div class="container">
+    <div class="row">
 
+    </div>
+</div>
 <table>
     <tr>
         <td>
@@ -8,6 +12,7 @@
             <h2>Name: {{currentUser.username}}</h2>
             <h2>Rank: {{rank}}</h2>
             <h2>Score: {{currentUser.score}}</h2>
+            <h2>Points to Poke-Sensei: </h2>
         </td>
     </tr>
 
@@ -17,13 +22,13 @@
     <h3>Your Inventory:</h3>
     <li *ngFor = "let anItem of userItems">
         {{anItem.name}}:{{anItem.description}}.Value:{{anItem.value}}
-        <button (click) = "removeItem(anItem)">Remove {{anItem.name}}</button>
+        <button class="btn btn-primary" (click) = "removeItem(anItem)">Remove {{anItem.name}}</button>
     </li>
 
 </ul>
 
 
-<button (click) = "addItem()">Add Item to Inventory</button>
+<button class="btn btn-primary"(click) = "addItem()">Add Item to Inventory</button>
 
 <div *ngIf = "showAddToInventory">
     <h3>Add Treasure to Inventory</h3>
@@ -32,5 +37,5 @@
     Description:
     <input type="text" [(ngModel)] = "description">
 
-    <button (click) = "addTreasureToInventory()">Add Treasure</button>
+    <button class="btn btn-primary"(click) = "addTreasureToInventory()">Add Treasure</button>
 </div>

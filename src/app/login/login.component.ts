@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Client } from '../Models/Client';
 import { Config } from '../Models/Config';
 import { GeoServicesService } from '../geo-services.service'
@@ -18,6 +18,9 @@ export class LoginComponent implements OnInit {
   loginSuccessful:boolean = false;
   currentUser:Client;
   showLogout:boolean = false;
+  showLocation:boolean = false;
+  showStats:boolean = false;
+  showNavigationOptions:boolean = false;
   
   constructor(private gss:GeoServicesService) { }
 
@@ -42,9 +45,17 @@ export class LoginComponent implements OnInit {
 
     this.loginSuccessful = true;
     this.showLogout = true;
+    this.showNavigationOptions = true;
   }
 
   async addNewUser(){
+    if ((this.usernm == "")||(this.userpassword == "")){
+      alert("Please enter valid Username/Password");
+      this.usernm = "";
+      this.userpassword = "";
+      return;
+    }
+
     let c:Client = new Client(0,this.usernm,this.userpassword,0,false);
 
     let tempc:Client = await this.gss.createClient(c);
@@ -71,6 +82,21 @@ export class LoginComponent implements OnInit {
     this.usernm = "";
     this.userpassword = "";
     // this.infoManager = "";
-
+    this.showNavigationOptions = false;
+    this.showStats = false;
+    this.showLocation = false;
   }
+
+  seeMyStats(){
+    this.showStats = true;
+    this.showNavigationOptions = false;
+    this.showLocation = false;
+  }
+
+  goToLocation(){
+    this.showLocation = true;
+    this.showNavigationOptions = false;
+    this.showStats = false;
+  }
+
 }

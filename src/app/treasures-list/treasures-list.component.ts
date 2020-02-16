@@ -23,6 +23,7 @@ export class TreasuresListComponent implements OnInit {
   readyForSwap:boolean = false;
   addTreasureMenu:boolean = false;
   removeTreasureMenu:boolean = false;
+  showSwapNewTreasure:boolean = false;
 
   name:string;
   description:string;
@@ -60,6 +61,7 @@ export class TreasuresListComponent implements OnInit {
     this.showTreasures=true;
     this.addTreasureMenu = false;
     this.removeTreasureMenu = false;
+    this.showSwapNewTreasure = false;
 
     this.name = "";
     this.description = "";
@@ -111,6 +113,17 @@ export class TreasuresListComponent implements OnInit {
     let tempc:Client = await this.gss.updateClient(this.currentUser);
     this.currentUser = tempc;
 
+    // Check if user is qualified to become a Poke Sensei or minor
+    if (this.currentUser.score > 9999){
+      this.currentUser.manager = true;
+      tempc = await this.gss.updateClient(this.currentUser);
+      this.currentUser = tempc;
+      alert("Congratulations!!!  You have mastered Poke Trading.  You are now a Poke Sensei!!!!");
+    } else if (this.currentUser.score > 4999){
+      alert("Congratulations!!! You have gained enough experience to graduate into a Poke Minor!!!!");
+    }
+
+
     //reset screen
     this.ngOnInit();
   }
@@ -146,6 +159,29 @@ export class TreasuresListComponent implements OnInit {
     console.log(tres);
     alert("Treasure successfully removed: " + tres.name);
     this.ngOnInit();
+
+  }
+
+  swapNewTreasure(){
+    if (this.boxSwapItem != null){  // user needs to have picked a box treasure to swap
+      this.showTreasures = false;
+      this.showSwapNewTreasure = true;
+    }else{
+      alert("Choose a box item to swap for!")
+    }
+  }
+
+  async newItemSwap(){
+
+    let value:number = 10 + Math.floor(Math.random() * Math.floor(140));
+
+    let newTreasure:Item = new Item(0,this.name,this.description,value,this.currentUser,null);
+
+    let TempI:Item = await this.gss.createItem(newTreasure);
+    // newTreasure = TempI;
+    this.userSwapItem = TempI;
+
+    this.doSwap();
 
   }
 

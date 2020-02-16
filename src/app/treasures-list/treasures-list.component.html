@@ -19,8 +19,11 @@
             <h3>Your Treasure Inventory:</h3>
             <ul>
                 <li *ngFor = "let anItem of userItems">
-                    {{anItem.name}}:{{anItem.description}}
+                    {{anItem.name}}:{{anItem.description}}. Value:{{anItem.value}}
                     <button class="btn btn-primary" (click) = "swapUserItem(anItem)">SWAP {{anItem.name}}</button>
+                </li>
+                <li>
+                    <button class="btn btn-primary" (click) = "swapNewTreasure()">Swap with New Treasure</button>
                 </li>
             </ul>
             <h3>Your Score:</h3>
@@ -61,6 +64,16 @@
 
 
 </div>
+
+<div *ngIf = "showSwapNewTreasure">
+    <h3>The New Treasure You Bring:</h3>
+    Name:
+    <input type="text" [(ngModel)] = "name">
+    Description:
+    <input type="text" [(ngModel)] = "description">
+    <button (click) = "newItemSwap()">Do Swap</button>
+</div>
+
 
 <div *ngIf = "readyForSwap">
     <h3>SWAP Ready</h3>

@@ -1,7 +1,7 @@
 footer{
     margin-left: 20px;
     margin-top: 10px;
-   
+   padding-bottom: 10px;
     color: blue;
     /* position: absolute; */
     /* position: fixed; */
@@ -35,6 +35,14 @@ footer{
 .btn{
     background-color: bisque;
     color: slategray;
+}
+
+#right{
+    float: right;
+}
+
+#left{
+    float: left;
 }
 
 #check{

@@ -44,8 +44,8 @@
                             </div>
                            
                             
-                            <button class="btn" (click) = "submit()">Submit</button>
-                            <button class="btn" (click) = "addNewUser()">Become an Explorer</button>
+                            <button id="left" class="btn" (click) = "submit()">Submit</button>
+                            <button id="right" class="btn" (click) = "addNewUser()">Become an Explorer</button>
                     
                     </div>
                     
@@ -62,16 +62,14 @@
     
 </div>
 
-                <nav class="navbar" *ngIf = "showLogout"> 
-                    <div class="navbar-brand"> 
-                        
-                        GeoEpic
-                        
-                        </div> 
-                        points to manager:
-                        <button  class="btn right btn-sm btn-primary" (click) = "doLogout()">Logout</button>
+<nav class="navbar" *ngIf = "showLogout"> 
+    <div class="navbar-brand"> 
+        GeoEpic
+    </div> 
+               points to manager:
+                <button  class="btn right btn-sm btn-primary" (click) = "doLogout()">Logout</button>
                     
-                </nav>
+</nav>
     
 <div *ngIf = "loginSuccessful">
 
@@ -82,7 +80,7 @@
 
 
 </div>
-<footer *ngIf = "loginSuccessful == false">
+<footer>
     <p>&copy; BitByte Inc.</p>
 </footer>
 

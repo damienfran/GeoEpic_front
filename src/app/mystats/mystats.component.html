@@ -1,34 +1,50 @@
-<div class="container">
+<div id="overlay"class="container">
+    <div id="space"class="row">
+        <diV class="col-sm-6">
+            <img id="right"src = {{imageLocation}} height="270">
+            
+        </diV>
+        <div class="col-sm-6">
+            <h2>Name: {{currentUser.username}}</h2>
+            <h2>Rank: {{rank}}</h2>
+            <h2>Score: {{currentUser.score}}</h2>
+            <h2>Points to {{nextLevel}}: {{pointsToNextLevel}}</h2>
+        </div>
+        
+    </div>
     <div class="row">
+        <div class="col-sm-6">
+            
+                <h3>Your Inventory:</h3>
+                <div *ngFor = "let anItem of userItems">
+                    {{anItem.name}}:{{anItem.description}} Value:{{anItem.value}}
+                    <button class="btn btn-primary" (click) = "removeItem(anItem)">Remove {{anItem.name}}</button>
+                </div>
+            
+            
+        </div>
+
+    </div>
+    <div class="row">
+        <button class="btn btn-primary"(click) = "addItem()">Add Item to Inventory</button>
 
     </div>
 </div>
 <table>
     <tr>
         <td>
-            <img src = {{imageLocation}} >
+            
         </td>
         <td>
-            <h2>Name: {{currentUser.username}}</h2>
-            <h2>Rank: {{rank}}</h2>
-            <h2>Score: {{currentUser.score}}</h2>
-            <h2>Points to {{nextLevel}}: {{pointsToNextLevel}}</h2>
+            
         </td>
     </tr>
 
 </table>
 
-<ul>
-    <h3>Your Inventory:</h3>
-    <li *ngFor = "let anItem of userItems">
-        {{anItem.name}}:{{anItem.description}}.Value:{{anItem.value}}
-        <button class="btn btn-primary" (click) = "removeItem(anItem)">Remove {{anItem.name}}</button>
-    </li>
-
-</ul>
 
 
-<button class="btn btn-primary"(click) = "addItem()">Add Item to Inventory</button>
+
 
 <div *ngIf = "showAddToInventory">
     <h3>Add Treasure to Inventory</h3>

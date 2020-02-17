@@ -3,3 +3,18 @@
     margin: 10px 60px;
     color: slategray;
 }
+
+#overlay{
+    background-color:#b3ecff;
+    text-align: justify;
+    border-radius: 10px;
+}
+
+#space{
+    padding-top: 20px;
+}
+
+#right{
+    display: block;
+    float: right;
+}

@@ -40,8 +40,9 @@
                 <button class="btn btn-primary" (click) = "editLocationCoordinates()">Edit Location Coordinates</button>
             </div>
             <div *ngIf = "editTreasureLocation">
-                <input type="text" [(ngModel)] = "newLocationInput">
-                <button class="btn btn-primary"(click) = "submitCoordinates()">Submit Coordinates</button>
+                New Location Coordinates:<input type="text" [(ngModel)] = "newLocationInput">
+                New Clue: <input type="text" [(ngModel)] = "newClueInput">
+                <button class="btn btn-primary"(click) = "submitCoordinates()">Submit Update</button>
             </div>
             
         </div>

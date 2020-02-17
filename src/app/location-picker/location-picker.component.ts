@@ -19,6 +19,7 @@ export class LocationPickerComponent implements OnInit {
   showTreasureMap:boolean = false;
   editTreasureLocation:boolean = false;
   
+  newClueInput:string;
   newLocationInput:string;
   currentLocation:Location = null;
   theLocations:Location[];
@@ -122,9 +123,8 @@ export class LocationPickerComponent implements OnInit {
   }
 
   async submitCoordinates(){
-    console.log(this.currentLocation.geoLocation);
     this.currentLocation.geoLocation = this.newLocationInput;
-    console.log(this.currentLocation.geoLocation);
+    this.currentLocation.clue = this.newClueInput;
 
     let tempC:Location = await this.gss.updateLocation(this.currentLocation);
     console.log(this.currentLocation.geoLocation);
@@ -133,6 +133,7 @@ export class LocationPickerComponent implements OnInit {
 
     alert("Location updated to " + this.currentLocation.geoLocation);
     this.newLocationInput = "";
+    this.newClueInput = "";
     this.editTreasureLocation = false;
   }
 }

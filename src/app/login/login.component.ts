@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   showLogout:boolean = false;
   showLocation:boolean = false;
   showStats:boolean = false;
-  showNavigationOptions:boolean = false;
+  // showNavigationOptions:boolean = false;
   
   constructor(private gss:GeoServicesService) { }
 
@@ -45,8 +45,13 @@ export class LoginComponent implements OnInit {
 
     this.loginSuccessful = true;
     this.showLogout = true;
-    this.showNavigationOptions = true;
+
+    this.showStats = true;
+    // this.showNavigationOptions = false;
+    this.showLocation = false;
   }
+
+
 
   async addNewUser(){
     if ((this.usernm == "")||(this.userpassword == "")){
@@ -82,20 +87,20 @@ export class LoginComponent implements OnInit {
     this.usernm = "";
     this.userpassword = "";
     // this.infoManager = "";
-    this.showNavigationOptions = false;
+    // this.showNavigationOptions = false;
     this.showStats = false;
     this.showLocation = false;
   }
 
   seeMyStats(){
     this.showStats = true;
-    this.showNavigationOptions = false;
+    // this.showNavigationOptions = false;
     this.showLocation = false;
   }
 
   goToLocation(){
     this.showLocation = true;
-    this.showNavigationOptions = false;
+    // this.showNavigationOptions = false;
     this.showStats = false;
   }
 

@@ -17,6 +17,8 @@ export class MystatsComponent implements OnInit {
   showAddToInventory:boolean;
   userItems:Array<Item> = [];
   rank:string = "";
+  nextLevel:string = "";
+  pointsToNextLevel:number = 0;
   pointsToSensei:number = 0;
 
 
@@ -40,10 +42,14 @@ export class MystatsComponent implements OnInit {
       this.rank = "Hatchling";
     }
 
-    if ( this.currentUser.score < 10000){
-      this.pointsToSensei = 10000 - this.currentUser.score;
+    if (this.currentUser.score < 5000){
+      this.nextLevel = "Poke Minor";
+      this.pointsToNextLevel = 5000 - this.currentUser.score;
+    }else if ( this.currentUser.score < 10000){
+      this.nextLevel = "Poke Sensei";
+      this.pointsToNextLevel = 10000 - this.currentUser.score;
     } else{
-      this.pointsToSensei = 0;
+      this.pointsToNextLevel = 0;
     }
   }
 

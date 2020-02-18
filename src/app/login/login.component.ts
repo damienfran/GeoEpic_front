@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
+    console.log("In Login");
     console.log("Location of server: " + Config.server);
   }
 

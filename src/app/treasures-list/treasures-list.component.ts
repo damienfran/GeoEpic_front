@@ -46,16 +46,19 @@ export class TreasuresListComponent implements OnInit {
 
   }
 
+  async updateUserInfo(){
+    let tempc:Client = await this.gss.getClientById(this.currentUser);
+    this.currentUser = tempc;
+  }
 
   ngOnInit() {
     console.log("In treasures-List component");
-    console.log(this.currentUser);
-    console.log(this.currentLocation);
 
     this.boxSwapItem = null;
     this.userSwapItem = null;
     this.readyForSwap = false;
 
+    this.updateUserInfo();
     this.populateTreasureList();
     this.populateUserItems();
     this.showTreasures=true;

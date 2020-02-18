@@ -1,3 +1,13 @@
+footer{
+    margin-left: 20px;
+    margin-top: 10px;
+   padding-bottom: 10px;
+    color: blue;
+    float: right;
+    /* position: absolute; */
+    /* position: fixed; */
+    bottom: 0;
+}
 .btn{
     background-color: bisque;
     margin: 10px 60px;
@@ -8,13 +18,18 @@
     background-color:#b3ecff;
     text-align: justify;
     border-radius: 10px;
+    width: 80%;
 }
 
 #space{
-    padding-top: 20px;
+   padding: 30px;
 }
 
 #right{
     display: block;
     float: right;
+}
+
+#scoot{
+    padding-left: 40px;
 }

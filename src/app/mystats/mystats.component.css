@@ -16,14 +16,17 @@ footer{
 
 #overlay{
     background-color:#b3ecff;
-    text-align: justify;
+    /* text-align: justify; */
     border-radius: 10px;
-    width: 80%;
+    width: 70%;
 }
 
-#space{
-   padding: 30px;
+#btnW{
+    width: 90px;
 }
+/* #space{
+   padding: 20px;
+} */
 
 #right{
     display: block;

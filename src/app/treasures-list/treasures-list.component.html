@@ -87,18 +87,19 @@
     </div>
 </div>
 
-
-
-
-
-<div *ngIf = "readyForSwap">
-    <h3>SWAP Ready</h3>
-    <br>
-    <h5>Item from Box:{{boxSwapItem.name}}:{{boxSwapItem.description}}</h5>
-    <br>
-    <h5>Your Item:{{userSwapItem.name}}:{{userSwapItem.description}}</h5>
-    <br>
-    <button class="btn btn-primary"(click) = "doSwap()">Do Swap!</button>
+<div id="ready" class="container"*ngIf = "readyForSwap">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>SWAP Ready</h3>
+            <br>
+            <h5>Treasure from Box: {{boxSwapItem.name}} "{{boxSwapItem.description}}"</h5>
+            <br>
+            <h5>Your Item: {{userSwapItem.name}} "{{userSwapItem.description}}"</h5>
+            <br>
+            <button class="btn btn-primary"(click) = "doSwap()">Do Swap!</button>
+        </div>
+    </div>
+    
 </div>
 
 

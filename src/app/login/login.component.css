@@ -1,12 +1,25 @@
 footer{
-    margin-left: 20px;
-    margin-top: 10px;
-   padding-bottom: 10px;
+    margin-right: 20px;
+    margin-top: -5px;
+   /* padding-bottom: 5px; */
     color: blue;
     float: right;
     /* position: absolute; */
     /* position: fixed; */
+    right: 0;
     bottom: 0;
+}
+
+.big{
+font-family: 'Amatic SC', cursive;
+font-weight:bold;
+font-size: 90px;
+}
+
+.reg{
+    /* font-family: 'Raleway', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
 }
 
 .wide{
@@ -22,7 +35,7 @@ footer{
 
 .container{
     /* background-color: aqua; */
-    /* margin-top: -20px; */
+    margin-top: -40px;
     text-align: center;
     
 }
@@ -31,19 +44,28 @@ footer{
 .input-group-text{
     background-color: bisque;
     color: slategray;
+    font-family: 'Source Code Pro', monospace;
+
 }
 
 .btn{
     background-color: bisque;
     color: slategray;
+    font-family: 'Source Code Pro', monospace;
+    /* font-size: 20px; */
 }
 
+#small{
+    font-size: 10px;
+}
 #right{
     float: right;
+    font-size: 15px;
 }
 
 #left{
     float: left;
+    font-size: 15px;
 }
 
 #check{
@@ -56,6 +78,13 @@ footer{
     background-size: cover;
 }
 
+#brand{
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+    font-size: 35px;
+    
+}
+
 
 .low{
     margin-top: 70px;
@@ -64,5 +93,7 @@ footer{
 .navbar{
     background-color: aquamarine;
     margin: 10px 20px;
+    border: 1px solid  #00b386;
     border-radius: 10px;
+    /* border-color: green; */
 }

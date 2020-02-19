@@ -1,5 +1,12 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+
+}
+
 .btn{
     background-color: bisque;
     margin: 10px 60px;
     color: slategray;
+    font-family: 'Source Code Pro', monospace;
+
 }

@@ -1,6 +1,6 @@
 <div id="overlay"class="container">
     <div id="space"class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-3 back">
             <img src = {{imageLocation}} width="100%">
             
         </div>
@@ -23,7 +23,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-9">
-                    <h5>Your Inventory:</h5>
+                    <h4>Your Inventory:</h4>
                         <table class="table table-sm" *ngFor = "let anItem of userItems">
                             <thead>
                                 <tr>
@@ -37,28 +37,28 @@
                                 <td><p>{{anItem.description}}</p></td>
                                 <td><p>{{anItem.value}}</p></td>
                                 <td>
-                                    <button id="btnW"class="btn btn-sm btn-primary" (click) = "removeItem(anItem)">Remove {{anItem.name}}</button>
+                                    <button class="btn btn-sm btn-primary" (click) = "removeItem(anItem)">Remove</button>
                                 </td>
                             </tr>
                             
                         </table>
                         <button class="btn btn-sm btn-primary"(click) = "addItem()">Add Item to Inventory</button>
-                
+                        <div *ngIf = "showAddToInventory">
+                            <h3>Add Treasure to Inventory</h3>
+                            Name:
+                            <input type="text" [(ngModel)] = "name">
+                            Description:
+                            <input type="text" [(ngModel)] = "description">
+                        
+                            <button class="btn btn-primary"(click) = "addTreasureToInventory()">Add Treasure</button>
+                        </div>
                 </div>
             </div>
             </div>
         </div>
       </div>
 
-<div *ngIf = "showAddToInventory">
-    <h3>Add Treasure to Inventory</h3>
-    Name:
-    <input type="text" [(ngModel)] = "name">
-    Description:
-    <input type="text" [(ngModel)] = "description">
 
-    <button class="btn btn-primary"(click) = "addTreasureToInventory()">Add Treasure</button>
-</div>
 
 
 <footer>

@@ -4,10 +4,10 @@
 <div id=backdrop class="jumbotron jumbotron-fluid" *ngIf = "loginSuccessful == false">
     <div class="container container-fluid">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <div >
-                        <h1 class="display-4">GEO EPIC</h1>
-                        <p class="lead">Find Poke Items,  Gain Revature Points</p>
+                        <h1 class="display-4 big">GEO EPIC</h1>
+                        <p class="lead reg">Find Poke Items,  Gain Revature Points</p>
                         <hr class="my-4">
                     
                    
@@ -22,21 +22,21 @@
                 
                     <div id="check" >
                             
-                            <h2>Start Exploring!</h2>
-                            <h2>Or Sign up by Choosing a Username and Password</h2>
+                            <h2 class="reg">Start Exploring!</h2>
+                            <h2 class="reg">Sign up by Choosing a Username and Password</h2>
                         
                             <div class="input-group input-group-sm mb-3">
                                 <div class="input-group-prepend">
-                                    <p class="input-group-text" id="basic-addon1">Username</p>
+                                    <p class=" input-group-text" id="basic-addon1">Username</p>
                                 </div>
-                                <input class="form-control" type="text" [(ngModel)] = "usernm">
+                                <input class=" form-control" type="text" [(ngModel)] = "usernm">
                                 
                             </div>
                             <div class="input-group input-group-sm mb-3">
                                 <div class="input-group-prepend">
-                                    <p class="input-group-text" id="basic-addon1">Password</p>
+                                    <p class=" input-group-text" id="basic-addon1">Password</p>
                                 </div>
-                                <input  class="form-control" type="password" [(ngModel)] = "userpassword">
+                                <input  class=" form-control" type="password" [(ngModel)] = "userpassword">
                                 
                             </div>
                            
@@ -60,13 +60,13 @@
 </div>
 
 <nav class="navbar" *ngIf = "showLogout"> 
-    <div class="navbar-brand"> 
+    <div id="brand"class="navbar-brand"> 
         <img src="assets/images/pokebox2.png" height=30px>
         GeoEpic
     </div> 
-                <button  class="btn btn-sm btn-primary" (click) = "goToLocation()">Go To Location</button>
-                <button  class="btn btn-sm btn-primary" (click) = "seeMyStats()">My Stats</button>
-                <button  class="btn right btn-sm btn-primary" (click) = "doLogout()">Logout</button>
+                <button  class="btn  btn-primary" (click) = "goToLocation()">Go To Location</button>
+                <button  class="btn  btn-primary" (click) = "seeMyStats()">My Stats</button>
+                <button  class="btn right  btn-primary" (click) = "doLogout()">Logout</button>
        
 </nav>
     

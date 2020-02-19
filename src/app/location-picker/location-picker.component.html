@@ -1,11 +1,11 @@
 <html id="boop">
     
-<div class="contianer container-fluid">
-    <div class="row">
+<div id="border"class="contianer container-fluid">
+    <div  class="row">
         <div class="col-sm-12">
             
             <div *ngIf = "showLocationMenu">
-                <table class="table table-borderless">
+                <table  class="table table-borderless">
                     <tr>
                         <td><button class="btn btn-primary"(click) = "openLocationOne()">Location One</button></td>
             
@@ -33,7 +33,7 @@
                     
             </div>
         </div>
-        <div class="col-sm-6 block"  *ngIf = "showTreasureMap">
+        <div class="col-sm-5 block"  *ngIf = "showTreasureMap">
             <h3>Clue: {{currentHint}}</h3>
             <img id="change"src="assets/images/pokebox2.png" height="100px" (click) = "treasureBoxFound()" >
             <div *ngIf = "currentUser.manager">
@@ -41,7 +41,7 @@
             </div>
             <div *ngIf = "editTreasureLocation">
                 New Location Coordinates:<input type="text" [(ngModel)] = "newLocationInput">
-                New Clue: <input type="text" [(ngModel)] = "newClueInput">
+                <h3>Clue: <input type="text" [(ngModel)] = "newClueInput"></h3>
                 <button class="btn btn-primary"(click) = "submitCoordinates()">Submit Update</button>
             </div>
             

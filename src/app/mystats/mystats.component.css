@@ -4,15 +4,25 @@ footer{
    padding-bottom: 10px;
     color: blue;
     float: right;
+    background: none;
     /* position: absolute; */
     /* position: fixed; */
     bottom: 0;
 }
+*{
+    font-family: 'Montserrat', sans-serif;
+
+}
+.back{
+    background-color: orange;
+}
 
 .btn{
     background-color: bisque;
-    margin: 10px 60px;
+    margin: 10px 10px;
     color: slategray;
+    font-family: 'Source Code Pro', monospace;
+
 }
 
 #overlay{

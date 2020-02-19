@@ -14,7 +14,11 @@ footer{
 
 }
 .back{
+    padding-top: 10px;
     background-color: orange;
+    border: 3px solid #3333cc;
+    border-radius: 10px;
+    padding-bottom: 10px;
 }
 
 .btn{
@@ -25,6 +29,16 @@ footer{
 
 }
 
+.input-group-text{
+    background-color: bisque;
+    color: slategray;
+    font-family: 'Source Code Pro', monospace;
+}
+
+#shorten{
+    margin-top: 20px;
+    width: 50%;
+}
 #overlay{
     background-color:#b3ecff;
     /* text-align: justify; */

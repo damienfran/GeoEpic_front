@@ -10,6 +10,7 @@ footer{
     bottom: 0;
 }
 
+
 .big{
 font-family: 'Amatic SC', cursive;
 font-weight:bold;
@@ -45,6 +46,11 @@ font-size: 90px;
     background-color: bisque;
     color: slategray;
     font-family: 'Source Code Pro', monospace;
+
+}
+
+.form-control{
+    font-family: 'Montserrat', sans-serif;
 
 }
 

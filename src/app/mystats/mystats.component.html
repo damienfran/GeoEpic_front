@@ -10,12 +10,12 @@
                     <table class="table table-sm">
                         
                             <tr>
-                                <td><h4>Name: {{currentUser.username}}</h4></td>
-                                <td><h4>Rank: {{rank}}</h4></td>
+                                <td><h5>Name: {{currentUser.username}}</h5></td>
+                                <td><h5>Rank: {{rank}}</h5></td>
                             </tr>
                             <tr>
-                                <td><h4>Score: {{currentUser.score}}</h4></td>
-                                <td><h4 *ngIf = "showNextLevel">Points to {{nextLevel}}: {{pointsToNextLevel}}</h4></td>
+                                <td><h5>Score: {{currentUser.score}}</h5></td>
+                                <td><h5 *ngIf = "showNextLevel">Points to {{nextLevel}}: {{pointsToNextLevel}}</h5></td>
                             </tr>
                     
                     </table>
@@ -23,8 +23,8 @@
             </div>
             <div class="row">
                 <div class="col-sm-9">
-                    <h4>Your Inventory:</h4>
-                        <table class="table table-sm" *ngFor = "let anItem of userItems">
+                    <h5>Your Inventory:</h5>
+                        <table class="table table-sm table-hover" >
                             <thead>
                                 <tr>
                                     <th>Item Name</th>
@@ -32,7 +32,10 @@
                                     <th>Value</th>
                                 </tr>
                             </thead>
-                            <tr>
+                            <tbody>
+
+                            
+                            <tr *ngFor = "let anItem of userItems">
                                 <td><p>{{anItem.name}}</p></td>
                                 <td><p>{{anItem.description}}</p></td>
                                 <td><p>{{anItem.value}}</p></td>
@@ -40,15 +43,26 @@
                                     <button class="btn btn-sm btn-primary" (click) = "removeItem(anItem)">Remove</button>
                                 </td>
                             </tr>
-                            
+                            </tbody>
                         </table>
                         <button class="btn btn-sm btn-primary"(click) = "addItem()">Add Item to Inventory</button>
-                        <div *ngIf = "showAddToInventory">
-                            <h3>Add Treasure to Inventory</h3>
-                            Name:
-                            <input type="text" [(ngModel)] = "name">
-                            Description:
-                            <input type="text" [(ngModel)] = "description">
+                        
+                        <div id="shorten" *ngIf = "showAddToInventory">
+                            <h5>Add Treasure to Inventory</h5>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <p class=" input-group-text" id="basic-addon1">Name</p>
+                                </div>
+                                <input class=" form-control"type="text" [(ngModel)] = "name">
+
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <p class=" input-group-text" id="basic-addon1">Description</p>
+                                </div>
+                                <input class=" form-control" type="text" [(ngModel)] = "description">
+                            </div>
+                            
                         
                             <button class="btn btn-primary"(click) = "addTreasureToInventory()">Add Treasure</button>
                         </div>

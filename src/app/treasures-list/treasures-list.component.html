@@ -1,78 +1,94 @@
 
-
-
 <div *ngIf = "showTreasures">
-<div class="container">
-    <div class="row">
-        <div class="col-sm-8">
-            <h3>Treasures in box {{currentLocation.lId}}:</h3>
-            <ul>
-                <li *ngFor = "let treasure of treasures">
-                    {{treasure.name}}:{{treasure.description}}
-                    <button class="btn btn-primary"(click) = "swapTreasure(treasure)">SWAP {{treasure.name}}</button>
-                </li>
-            </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="heads">Select a Treasure in the Box to Swap with an Item<br> in Your Inventory or with a New Treasure</h4>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <h3>Your Treasure Inventory:</h3>
-            <ul>
-                <li *ngFor = "let anItem of userItems">
-                    {{anItem.name}}:{{anItem.description}}. Value:{{anItem.value}}
-                    <button class="btn btn-primary" (click) = "swapUserItem(anItem)">SWAP {{anItem.name}}</button>
-                </li>
-                <li>
-                    <button class="btn btn-primary" (click) = "swapNewTreasure()">Swap with New Treasure</button>
-                </li>
-            </ul>
-            <h3>Your Score:</h3>
-            <h3>{{currentUser.score}}</h3>
+        <div class="row">
+            <div class="col-sm-6">
+                <h5>Treasures in box {{currentLocation.lId}}:</h5>
+                <table class="table table-sm table-hover table-borderless">
+                <thead>
+                    <tr>
+                        <th>Treasure</th>
+                        <th>Description</th>
+                        <th>Value</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let treasure of treasures">
+                        <td>{{treasure.name}}</td>
+                        <td>{{treasure.description}}</td>
+                        <td>{{treasure.value}}</td>
+                        <td><button class="btn btn-sm btn-primary"(click) = "swapTreasure(treasure)"> Select </button></td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            <div class="col-sm-6">
+                <h5>Your Score: {{currentUser.score}}</h5>
+                <h5>Your Inventory:</h5>
+                <table class="table table-sm table-hover table-borderless">
+                    <thead>
+                    <tr>
+                        <th>Treasure</th>
+                        <th>Description</th>
+                        <th>Value</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let anItem of userItems">
+                            <td>{{anItem.name}}</td>
+                            <td>{{anItem.description}}</td>
+                            <td>{{anItem.value}}</td>
+                            <td><button class="btn btn-sm btn-primary" (click) = "swapUserItem(anItem)"> Select </button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" (click) = "swapNewTreasure()">Swap with New Treasure</button>
+                
+                    <div id="squish" *ngIf = "currentUser.manager">
+                        <h5 id="top" class="heads">Add or Remove a Treasure from the Box</h5>
+                        <button id="left"class="btn btn-primary"(click) = "addTreasure()">Add Treasure</button>
+                        <button id="right"class="btn btn-primary"(click) = "removeTreasure()">Remove Treasure</button>
+                    </div>
+                
+            </div>
+        </div>
         
+    </div>
+
+</div>
+<div id="backdrop" class="container"*ngIf = "showSwapNewTreasure">
+    <div class="row">
+        <div class="col-sm-12">
+            
+                <h3>Your New Treasure:</h3>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <p class=" input-group-text" id="basic-addon1">Name</p>
+                    </div>
+                    <input class=" form-control"type="text" [(ngModel)] = "name">
+            
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <p class=" input-group-text" id="basic-addon1">Description</p>
+                    </div>
+                    <input class=" form-control"type="text" [(ngModel)] = "description">
+                </div>
+                
+                <button class="btn btn-primary" (click) = "newItemSwap()"> Swap </button>
+            
         </div>
     </div>
 </div>
 
 
-<table>
-    <tr>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-            
-        </td>
-    </tr>
 
-    <tr>
-        <td>
-            
-        </td>
-        <td>
-            
-        </td>
-        <td>
-            </td>
-    </tr>
-    <tr *ngIf = "currentUser.manager">
-        <button class="btn btn-primary"(click) = "addTreasure()">Add Treasure</button>
-        <button class="btn btn-primary"(click) = "removeTreasure()">Remove Treasure</button>
-    </tr>
-</table>
-
-
-
-</div>
-
-<div *ngIf = "showSwapNewTreasure">
-    <h3>The New Treasure You Bring:</h3>
-    Name:
-    <input type="text" [(ngModel)] = "name">
-    Description:
-    <input type="text" [(ngModel)] = "description">
-    <button (click) = "newItemSwap()">Do Swap</button>
-</div>
 
 
 <div *ngIf = "readyForSwap">

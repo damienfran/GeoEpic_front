@@ -32,7 +32,7 @@ export class MystatsComponent implements OnInit {
       this.nextLevel = "Poke Minor";
       this.pointsToNextLevel = 5000 - this.currentUser.score;
       this.imageLocation = "assets/images/Torchic2.png";
-      this.rank = "Hatchling";
+      this.rank = "Poke Hatchling";
       this.showNextLevel = true;
     }else if ( this.currentUser.score < 10000){
       this.nextLevel = "Poke Sensei";

@@ -49,6 +49,11 @@ export class LocationPickerComponent implements OnInit {
     
   }
 
+  async updateUserInfo(){
+    let tempc:Client = await this.gss.getClientById(this.currentUser);
+    this.currentUser = tempc;
+  }
+
   async initializeLocations(){
     let inputdata:Location[] = await this.gss.getAllLocations();
     this.theLocations = inputdata;
@@ -62,11 +67,11 @@ export class LocationPickerComponent implements OnInit {
     this.showTreasuresList = false;
     this.locCoord = this.theLocations[0].geoLocation;
     this.updateMapURL();
-    
+    this.updateUserInfo();
 
     this.showTreasureMap = true;
     
-    // this.locationNumber = 1;
+    this.editTreasureLocation = false;
     this.currentLocation = this.theLocations[0];
 
     this.currentHint = this.theLocations[0].clue;
@@ -76,10 +81,10 @@ export class LocationPickerComponent implements OnInit {
     this.showTreasuresList = false;
     this.locCoord = this.theLocations[1].geoLocation;
     this.updateMapURL();
-
+    this.updateUserInfo();
     this.showTreasureMap = true;
 
-    // this.locationNumber = 2;
+    this.editTreasureLocation = false;
     this.currentLocation = this.theLocations[1];
 
 
@@ -90,10 +95,10 @@ export class LocationPickerComponent implements OnInit {
     this.showTreasuresList = false;
     this.locCoord = this.theLocations[2].geoLocation;
     this.updateMapURL();
-
+    this.updateUserInfo();
     this.showTreasureMap = true;
 
-    // this.locationNumber = 3;
+    this.editTreasureLocation = false;
     this.currentLocation = this.theLocations[2];
     
     this.currentHint = this.theLocations[2].clue;
@@ -103,10 +108,9 @@ export class LocationPickerComponent implements OnInit {
     this.showTreasuresList = false;
     this.locCoord = this.theLocations[3].geoLocation;
     this.updateMapURL();
-
+    this.updateUserInfo();
     this.showTreasureMap = true;
-
-    // this.locationNumber = 4;
+    this.editTreasureLocation = false;
     this.currentLocation = this.theLocations[3];
 
     this.currentHint = this.theLocations[3].clue;

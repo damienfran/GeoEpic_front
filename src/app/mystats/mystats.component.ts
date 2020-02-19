@@ -19,6 +19,7 @@ export class MystatsComponent implements OnInit {
   rank:string = "";
   nextLevel:string = "";
   pointsToNextLevel:number = 0;
+  showNextLevel:boolean = false;
 
 
   constructor(private gss:GeoServicesService) { }
@@ -32,16 +33,19 @@ export class MystatsComponent implements OnInit {
       this.pointsToNextLevel = 5000 - this.currentUser.score;
       this.imageLocation = "assets/images/Torchic2.png";
       this.rank = "Hatchling";
+      this.showNextLevel = true;
     }else if ( this.currentUser.score < 10000){
       this.nextLevel = "Poke Sensei";
       this.pointsToNextLevel = 10000 - this.currentUser.score;
       this.imageLocation = "assets/images/combusken2.png";
       this.rank = "Poke Minor";
+      this.showNextLevel = true;
     } else{
       this.nextLevel = "Continue";
       this.pointsToNextLevel = 0;
       this.imageLocation = "assets/images/blaziken2.png";
       this.rank = "Poke Sensei";  
+      this.showNextLevel = false;
     }
   }
 

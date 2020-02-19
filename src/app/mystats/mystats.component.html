@@ -15,7 +15,7 @@
                             </tr>
                             <tr>
                                 <td><h4>Score: {{currentUser.score}}</h4></td>
-                                <td><h4>Points to {{nextLevel}}: {{pointsToNextLevel}}</h4></td>
+                                <td><h4 *ngIf = "showNextLevel">Points to {{nextLevel}}: {{pointsToNextLevel}}</h4></td>
                             </tr>
                     
                     </table>

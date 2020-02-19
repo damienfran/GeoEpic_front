@@ -122,9 +122,7 @@ export class TreasuresListComponent implements OnInit {
       tempc = await this.gss.updateClient(this.currentUser);
       this.currentUser = tempc;
       alert("Congratulations!!!  You have mastered Poke Trading.  You are now a Poke Sensei!!!!");
-    } else if (this.currentUser.score > 4999){
-      alert("Congratulations!!! You have gained enough experience to graduate into a Poke Minor!!!!");
-    }
+    } 
 
 
     //reset screen

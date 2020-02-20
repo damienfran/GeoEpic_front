@@ -33,8 +33,25 @@
                     
             </div>
         </div>
-        <div class="col-sm-5 block"  *ngIf = "showTreasureMap">
-            <h5>Clue: {{currentHint}}</h5>
+        <div class="col-sm-6"  *ngIf = "showTreasureMap">
+            <div class="card block" style="width: 20rem;">
+                <img class="card-img-top" src="assets/images/pokebox2.png" alt="pokebox">
+                <div class="card-body">
+                  <h5 class="card-title">Clue:</h5>
+                  <p class="card-text">{{currentHint}}</p>
+                  <button class="btn btn-primary cardbtn" (click) = "treasureBoxFound()"> Open box </button>
+                  <div *ngIf = "currentUser.manager">
+                    <button class="btn btn-primary cardbtn" (click) = "editLocationCoordinates()">Edit Location Coordinates</button>
+                  
+                  </div>
+                    <div *ngIf = "editTreasureLocation">
+                        New Location Coordinates:<input type="text" [(ngModel)] = "newLocationInput">
+                        <h3>Clue: <input type="text" [(ngModel)] = "newClueInput"></h3>
+                        <button class="btn btn-primary"(click) = "submitCoordinates()">Submit Update</button>
+                    </div>
+                </div>
+              </div>
+            <!-- <h5>Clue: {{currentHint}}</h5>
             <img id="change"src="assets/images/pokebox2.png" height="100px" (click) = "treasureBoxFound()" >
             <div *ngIf = "currentUser.manager">
                 <button class="btn btn-primary" (click) = "editLocationCoordinates()">Edit Location Coordinates</button>
@@ -44,7 +61,7 @@
                 <h3>Clue: <input type="text" [(ngModel)] = "newClueInput"></h3>
                 <button class="btn btn-primary"(click) = "submitCoordinates()">Submit Update</button>
             </div>
-            
+             -->
         </div>
     </div>
     <div class="row">

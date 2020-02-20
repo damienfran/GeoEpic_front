@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Client } from '../Models/Client';
 import { Item } from '../Models/Item';
 import { GeoServicesService } from '../geo-services.service'
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-mystats',
@@ -22,7 +23,7 @@ export class MystatsComponent implements OnInit {
   showNextLevel:boolean = false;
 
 
-  constructor(private gss:GeoServicesService) { }
+  constructor(private gss:GeoServicesService, private titleService:Title) { }
 
   async updateUserInfo(){
     let tempc:Client = await this.gss.getClientById(this.currentUser);
@@ -50,6 +51,7 @@ export class MystatsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.setTitle("GeoEpic - MyStats");
     console.log("In MyStats");
     this.name = "";
     this.description = "";

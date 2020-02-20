@@ -3,7 +3,7 @@ import { Client } from '../Models/Client';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Location } from '../Models/Location';
 import { GeoServicesService } from '../geo-services.service'
-
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-location-picker',
@@ -32,7 +32,7 @@ export class LocationPickerComponent implements OnInit {
   urlSafe: SafeResourceUrl;
 
 
-  constructor(public sanitizer: DomSanitizer, private gss:GeoServicesService) { }
+  constructor(public sanitizer: DomSanitizer, private gss:GeoServicesService, private titleService:Title) { }
 
   updateMapURL(){
     this.url = `https://www.google.com/maps/embed/v1/place?q=${this.locCoord}&key=${this.key}`;
@@ -40,6 +40,7 @@ export class LocationPickerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.setTitle("GeoEpic - Location Picker");
     this.showLocationMenu = true;
     this.showTreasuresList = false;
     this.showTreasureMap = false;

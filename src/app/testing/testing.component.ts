@@ -3,6 +3,7 @@ import { Client } from '../Models/Client'
 import { GeoServicesService } from '../geo-services.service'
 import { Location } from '../Models/Location';
 import { Item } from '../Models/Item';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-testing',
@@ -14,7 +15,7 @@ export class TestingComponent implements OnInit {
 
   allClients:Client[];
 
-  constructor(private gss:GeoServicesService) { }
+  constructor(private gss:GeoServicesService, private titleService:Title) { }
 
   ngOnInit() {
   }
@@ -155,6 +156,15 @@ export class TestingComponent implements OnInit {
     I = tempI;
 
     console.log(I);
+
+  }
+
+  showTitle(){
+    alert(this.titleService.getTitle());
+  }
+
+  setTitle(){
+    this.titleService.setTitle("Testing");
 
   }
 }

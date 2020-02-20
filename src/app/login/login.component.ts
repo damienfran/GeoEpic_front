@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Client } from '../Models/Client';
 import { Config } from '../Models/Config';
 import { GeoServicesService } from '../geo-services.service'
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -22,10 +23,11 @@ export class LoginComponent implements OnInit {
   showStats:boolean = false;
   // showNavigationOptions:boolean = false;
   
-  constructor(private gss:GeoServicesService) { }
+  constructor(private gss:GeoServicesService, private titleService:Title) { }
 
 
   ngOnInit() {
+    this.titleService.setTitle("GeoEpic - Login");
     console.log("In Login");
     console.log("Location of server: " + Config.server);
   }
@@ -91,6 +93,8 @@ export class LoginComponent implements OnInit {
     // this.showNavigationOptions = false;
     this.showStats = false;
     this.showLocation = false;
+    this.titleService.setTitle("GeoEpic - Login");
+
   }
 
   seeMyStats(){

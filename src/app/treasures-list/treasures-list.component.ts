@@ -3,6 +3,7 @@ import { Client } from '../Models/Client';
 import { Item } from '../Models/Item';
 import { Location } from '../Models/Location';
 import { GeoServicesService } from '../geo-services.service'
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-treasures-list',
@@ -30,7 +31,7 @@ export class TreasuresListComponent implements OnInit {
   value:number;
 
 
-  constructor(private gss:GeoServicesService) { }
+  constructor(private gss:GeoServicesService, private titleService:Title) { }
 
   async populateTreasureList(){ // get items by current location
     let L:Location = new Location(this.currentLocation.lId, "","");
@@ -52,6 +53,7 @@ export class TreasuresListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.setTitle("GeoEpic - Treasure Swap");
     console.log("In treasures-List component");
 
     this.boxSwapItem = null;

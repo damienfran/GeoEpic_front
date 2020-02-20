@@ -104,26 +104,52 @@
 
 
 
-<div *ngIf = "addTreasureMenu">
+<div id="add" class="container" *ngIf = "addTreasureMenu">
     <h3>Add Treasure to Box</h3>
-    Name:
-    <input type="text" [(ngModel)] = "name">
-    Description:
-    <input type="text" [(ngModel)] = "description">
-    Value:
-    <input type="text" [(ngModel)] = "value">
+
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <p class=" input-group-text" id="basic-addon1"> Name </p>
+        </div>
+        <input class=" form-control"type="text" [(ngModel)] = "name">
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <p class=" input-group-text" id="basic-addon1"> Description </p>
+        </div>
+        <input class=" form-control"type="text" [(ngModel)] = "description">
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <p class=" input-group-text" id="basic-addon1"> Value </p>
+        </div>
+        <input class=" form-control"type="text" [(ngModel)] = "value">
+    </div>
+    
     <button class="btn btn-primary"(click) = "addTreasureToBox()">Add Treasure</button>
 
 </div>
 
-<div *ngIf = "removeTreasureMenu">
-    <h3>Remove Treasure From Box</h3>
-    <ul>
-        <li *ngFor = "let treasure of treasures">
-            {{treasure.name}}:{{treasure.description}}
-            <button class="btn btn-primary" (click) = "removeFromBox(treasure)">Remove {{treasure.name}}</button>
-        </li>
-    </ul>
+<div id="remove" class="container" *ngIf = "removeTreasureMenu">
+    <h3>Remove a Treasure From Box</h3>
+    <table class="table table-sm table-hover table-borderless">
+        <thead>
+            <tr>
+                <th>Treasure Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let treasure of treasures">
+                <td>{{treasure.name}}</td>
+                <td>{{treasure.description}}</td>
+                <td><button class="btn btn-primary" (click) = "removeFromBox(treasure)">Remove {{treasure.name}}</button></td>
+            </tr>
+        </tbody>
+    </table>
+    
 </div>
 
 

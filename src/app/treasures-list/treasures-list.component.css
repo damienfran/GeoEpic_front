@@ -33,9 +33,14 @@
     width: 80%;
 }
 
-/* #tiny{
+#add{
+    width: 30%;
+}
+
+#remove{
     width: 50%;
-} */
+}
+
 #top{
     margin-top: 20px;
 }

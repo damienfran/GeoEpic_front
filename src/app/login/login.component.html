@@ -1,6 +1,5 @@
 <html>
 
-
 <div id=backdrop class="jumbotron jumbotron-fluid" *ngIf = "loginSuccessful == false">
     <div class="container container-fluid">
         <div class="row">
@@ -9,8 +8,6 @@
                         <h1 class="display-4 big">GEO EPIC</h1>
                         <p class="lead reg">Find Poke Items,  Gain Revature Points</p>
                         <hr class="my-4">
-                    
-                   
                 </div>
             </div>
         </div>
@@ -22,8 +19,9 @@
                 
                     <div id="check" >
                             
-                            <h2 class="reg">Start Exploring!</h2>
-                            <h2 class="reg">Sign up by Choosing a Username and Password</h2>
+                            <h2 id="down" class="reg">Start Exploring!
+                                <br>
+                            Sign in or Make an Account</h2>
                         
                             <div class="input-group input-group-sm mb-3">
                                 <div class="input-group-prepend">
@@ -40,13 +38,10 @@
                                 
                             </div>
                            
-                            
                             <button id="left" class="btn" (click) = "submit()">Submit</button>
                             <button id="right" class="btn" (click) = "addNewUser()">Become an Explorer</button>
                     
                     </div>
-                    
-                        
                     
                 </div>
                 <div class="col-sm-4 low" >
@@ -54,14 +49,12 @@
     
                 </div>
             </div>
-         
     </div>
-    
 </div>
 
 <nav class="navbar" *ngIf = "showLogout"> 
     <div id="brand"class="navbar-brand"> 
-        <img src="assets/images/pokebox2.png" height=30px>
+        <img id="giveSpace"src="assets/images/pokebox2.png" height=30px>
         GeoEpic
     </div> 
                 <button  class="btn  btn-primary" (click) = "goToLocation()">Go To Location</button>
@@ -69,12 +62,6 @@
                 <button  class="btn right  btn-primary" (click) = "doLogout()">Logout</button>
        
 </nav>
-    
-<!-- <div *ngIf = "showNavigationOptions">
-    <button class="btn btn-primary"(click) = "seeMyStats()">See Your Stats</button>
-    <button class="btn btn-primary"(click) = "goToLocation()">Look For Poke Treasure</button>
-
-</div> -->
 
 <div *ngIf = "showStats">
     <app-mystats [currentUser] = "currentUser">
@@ -88,12 +75,8 @@
     </app-location-picker>
 </div>
 
-
-
 <footer *ngIf = "loginSuccessful == false">
     <p>&copy; BitByte Inc.</p>
 </footer>
-
-
 
 </html>

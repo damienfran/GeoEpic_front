@@ -1,0 +1,48 @@
+
+
+<head><style>
+
+    tr:nth-child(odd){
+      background-color: plum;
+    }
+    .c:nth-child(even){
+      background-color:violet
+    
+    }
+  
+    th
+    {
+      background-color:white;
+      border:3px solid rebeccapurple;
+    }
+  
+    table{
+      border:3px solid black;
+    }
+  
+    td{
+      border:2px solid black;
+    }
+  </style></head>
+  <body>
+  <h3 style="margin-left:40%;font-size:4em;font-weight: bold">Score Board</h3>
+  <table style="width:30%;margin-left: 40%;border-radius: 1em;"id="setter">
+    
+    <tr style="font-size: 2em;color:black;margin-left:1em;">
+          <th style="margin-left: 1em;">USERNAME</th>
+          <th>SCORE</th> 
+      </tr>
+      <tr *ngFor = "let client of sortedArray" style="font-size: 2em;color:black;padding-left: 4em;border:1em; 
+        "class="c">
+          <td>{{client.username}}</td>    
+          <td>{{client.score}}</td> 
+      </tr>
+    </table>
+  
+  <!-- <img src="http://www.pngmart.com/files/2/Pikachu-PNG-Photos-260x279.png">
+  <img src="http://www.pngmart.com/files/2/Pokemon-PNG-Picture.png"> -->
+
+   <img src="http://www.pngmart.com/files/2/Pikachu-PNG-Photos-260x279.png"style="position:absolute;top:900px;left:100px;width:400px">
+  <img src="http://www.pngmart.com/files/2/Pokemon-PNG-Picture.png"style="width:300px;margin-left:75%;position:absolute;top:900px;bottom:300px">
+  
+  </body>

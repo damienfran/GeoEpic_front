@@ -10,6 +10,7 @@ import { LocationPickerComponent } from './location-picker/location-picker.compo
 import { TreasuresListComponent } from './treasures-list/treasures-list.component';
 import { TestingComponent } from './testing/testing.component';
 import { MystatsComponent } from './mystats/mystats.component';
+import { ScoreComponent } from './score/score.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MystatsComponent } from './mystats/mystats.component';
     LocationPickerComponent,
     TreasuresListComponent,
     TestingComponent,
-    MystatsComponent
+    MystatsComponent,
+    ScoreComponent
   ],
   imports: [
     BrowserModule,

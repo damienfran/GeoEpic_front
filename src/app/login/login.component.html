@@ -57,6 +57,7 @@
         <img id="giveSpace"src="assets/images/pokebox2.png" height=30px>
         GeoEpic
     </div> 
+                <button  class="btn  btn-primary" (click) = "goToScores()">Score Board</button>
                 <button  class="btn  btn-primary" (click) = "goToLocation()">Go To Location</button>
                 <button  class="btn  btn-primary" (click) = "seeMyStats()">My Stats</button>
                 <button  class="btn right  btn-primary" (click) = "doLogout()">Logout</button>
@@ -74,6 +75,12 @@
 
     </app-location-picker>
 </div>
+
+<div *ngIf = "showScores">
+    <app-score></app-score>
+
+</div>
+
 
 <footer *ngIf = "loginSuccessful == false">
     <p>&copy; BitByte Inc.</p>

@@ -14,14 +14,12 @@ export class LoginComponent implements OnInit {
 
   usernm:string;
   userpassword:string;
-  // infoManager:string;
-  // isManager:boolean;
   loginSuccessful:boolean = false;
   currentUser:Client;
   showLogout:boolean = false;
   showLocation:boolean = false;
   showStats:boolean = false;
-  // showNavigationOptions:boolean = false;
+  showScores:boolean = false;
   
   constructor(private gss:GeoServicesService, private titleService:Title) { }
 
@@ -50,7 +48,6 @@ export class LoginComponent implements OnInit {
     this.showLogout = true;
 
     this.showStats = true;
-    // this.showNavigationOptions = false;
     this.showLocation = false;
   }
 
@@ -75,11 +72,6 @@ export class LoginComponent implements OnInit {
     this.userpassword = "";
     return;
 
-    // this.loginSuccessful = true;
-    // this.showLogout = true;
-
-
-
   }
 
   doLogout(){
@@ -89,8 +81,7 @@ export class LoginComponent implements OnInit {
 
     this.usernm = "";
     this.userpassword = "";
-    // this.infoManager = "";
-    // this.showNavigationOptions = false;
+
     this.showStats = false;
     this.showLocation = false;
     this.titleService.setTitle("GeoEpic - Login");
@@ -99,14 +90,20 @@ export class LoginComponent implements OnInit {
 
   seeMyStats(){
     this.showStats = true;
-    // this.showNavigationOptions = false;
     this.showLocation = false;
+    this.showScores = false;
   }
 
   goToLocation(){
     this.showLocation = true;
-    // this.showNavigationOptions = false;
     this.showStats = false;
+    this.showScores = false;
+  }
+
+  goToScores(){
+    this.showScores = true;
+    this.showStats = false;
+    this.showLocation = false;
   }
 
 }

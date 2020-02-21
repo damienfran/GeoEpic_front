@@ -121,7 +121,8 @@ table,td{
     
     margin: 10px 0;
 }
-/* .cardbtn{
-    
-} */
+
+.bold{
+    font-weight: bold;
+}
 

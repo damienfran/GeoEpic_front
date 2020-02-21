@@ -1,56 +1,37 @@
 
-<html>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <img src="assets/images/Pikachu.png" width="200" style="position:fixed; margin-top: 20px;">
 
-<head><style>
+    </div>
+    <div class="col-sm-6">
 
-    tr:nth-child(odd){
-      background-color: plum;
-    }
-    .c:nth-child(even){
-      background-color:violet
-    
-    }
-  
-    th
-    {
-      background-color:white;
-      border:3px solid rebeccapurple;
-    }
-  
-    table{
-      border:3px solid black;
-    }
-  
-    td{
-      border:2px solid black;
-    }
-  </style></head>
-  
-  <body [ngStyle] = "{background: 'url(./assets/images/wallpaper3.png)'}">
+      <h3 style="text-align: center; font-size:15; font-weight: bold;">Score Board</h3>
 
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="c"*ngFor = "let client of sortedArray">
+              <td>{{client.username}}</td>    
+              <td>{{client.score}}</td> 
+          </tr>
+        </tbody>
+      </table>
+      <footer>
+        <p>&copy; BitByte Inc.</p>
+      </footer>
+      
+    </div>
+    <div class="col-sm-3">
+      <img src="assets/images/Charmander.png"width="200" style="position:fixed; margin-left: 45px; margin-top: 20px">
+    </div>
+  </div>
+</div>
 
-  <h3 style="margin-left:40%;font-size:4em;font-weight: bold">Score Board</h3>
-
-
-
-
-  <table style="width:30%;margin-left: 40%;border-radius: 1em;"id="setter">
-    
-    <tr style="font-size: 2em;color:black;margin-left:1em;">
-          <th style="margin-left: 1em;">USERNAME</th>
-          <th>SCORE</th> 
-      </tr>
-      <tr *ngFor = "let client of sortedArray" style="font-size: 2em;color:black;padding-left: 4em;border:1em; 
-        "class="c">
-          <td>{{client.username}}</td>    
-          <td>{{client.score}}</td> 
-      </tr>
-    </table>
-  
-
-
-   <img src="http://www.pngmart.com/files/2/Pikachu-PNG-Photos-260x279.png"style="position:absolute;top:900px;left:100px;width:400px">
-  <img src="http://www.pngmart.com/files/2/Pokemon-PNG-Picture.png"style="width:300px;margin-left:75%;position:absolute;top:900px;bottom:300px">
-  
-  </body>
-  </html>
+ 

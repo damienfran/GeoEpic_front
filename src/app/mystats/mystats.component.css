@@ -1,5 +1,5 @@
 footer{
-    margin-right: 50px;
+    margin-right: 55px;
     margin-top: 15px;
     padding-bottom: 10px;
     color: blue;
@@ -12,9 +12,15 @@ footer{
     font-family: 'Montserrat', sans-serif;
 
 }
+
+.bold{
+    font-weight: bold;
+    
+}
 .back{
     padding-top: 10px;
     background-color: orange;
+    /* background-color: #ffcc80; */
     border: 3px solid #3333cc;
     border-radius: 10px;
     padding-bottom: 10px;
@@ -34,9 +40,12 @@ footer{
     font-family: 'Source Code Pro', monospace;
 }
 
+#extend{
+    margin-bottom: 10px;
+}
 #shorten{
     margin-top: 20px;
-    width: 50%;
+    width: 55%;
 }
 #overlay{
     background-color:#b3ecff;

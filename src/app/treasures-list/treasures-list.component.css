@@ -11,6 +11,10 @@
 
 }
 
+.bold{
+    font-weight: bold;
+    float: right;
+}
 .input-group-text{
     background-color: bisque;
     color: slategray;

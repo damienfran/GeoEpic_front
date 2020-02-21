@@ -1,0 +1,29 @@
+tr:nth-child(odd){
+    background-color: #ffccff;
+  }
+  .c:nth-child(even){
+    background-color:#ffe6ff;
+  
+  }
+
+  table{
+    border:3px solid black;
+    
+  }
+
+  *{
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+footer{
+    margin-top: 15px;
+    padding-bottom: 10px;
+    color: blue;
+    float: right;
+    background-image: none;
+    bottom: 0;
+}
+.container{
+    margin-top: 20px;
+}

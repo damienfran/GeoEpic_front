@@ -47,7 +47,7 @@
             <div class="card block" style="width: 25rem;">
                 <img class="card-img-top" src="assets/images/pokebox2.png" alt="pokebox">
                 <div class="card-body">
-                  <h5 class="card-title">Clue: {{currentHint}}</h5>
+                  <h5 class="card-title bold">Clue: {{currentHint}}</h5>
                   <button class="btn btn-primary cardbtn" (click) = "treasureBoxFound()"> Open box </button>
                   <div *ngIf = "currentUser.manager">
                     <button class="btn btn-primary cardbtn" (click) = "editLocationCoordinates()">Edit Location Coordinates</button>

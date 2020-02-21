@@ -137,6 +137,11 @@ export class TreasuresListComponent implements OnInit {
   }
 
   async addTreasureToBox(){
+    if (this.name == "" || this.name == null){
+      alert ("Please enter name of new treasure!");
+      return;
+    }
+
     let newTreasure:Item = new Item(0,this.name,this.description,this.value,null,this.currentLocation);
 
     let TempI:Item = await this.gss.createItem(newTreasure);
@@ -175,6 +180,10 @@ export class TreasuresListComponent implements OnInit {
   }
 
   async newItemSwap(){
+    if (this.name == "" || this.name == null){
+      alert("Please enter name of your treasure!");
+      return;
+    }
 
     let value:number = 10 + Math.floor(Math.random() * Math.floor(140));
 

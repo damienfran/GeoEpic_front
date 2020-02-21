@@ -86,6 +86,10 @@ export class MystatsComponent implements OnInit {
   }
 
   async addTreasureToInventory(){
+    if (this.name == "" || this.name == null){
+      alert("Please enter the name of your treasure!")
+      return;
+    }
 
     let value:number = 10 + Math.floor(Math.random() * Math.floor(140));
 

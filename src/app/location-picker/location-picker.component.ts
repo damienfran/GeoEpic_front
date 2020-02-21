@@ -128,6 +128,11 @@ export class LocationPickerComponent implements OnInit {
   }
 
   async submitCoordinates(){
+    if (this.newLocationInput == "" || this.newLocationInput == null){
+      alert("Please Enter new Coordinates!");
+      return;
+    }
+
     this.currentLocation.geoLocation = this.newLocationInput;
     this.currentLocation.clue = this.newClueInput;
 

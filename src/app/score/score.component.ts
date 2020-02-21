@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GeoServicesService} from '../geo-services.service';
 import {Client} from '../models/Client';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-score',
@@ -16,7 +17,7 @@ export class ScoreComponent implements OnInit {
   points:number;
   sortedArray:Array<Client>;
 
-  constructor(private gss:GeoServicesService) {  }
+  constructor(private gss:GeoServicesService, private titleService:Title) {  }
  
 async findScore(){
   let response:any = await this.gss.getAllClients();
@@ -32,6 +33,8 @@ async findScore(){
 }
 
   ngOnInit() {
+    this.titleService.setTitle("GeoEpic - High Scores");
+
     this.findScore();
   }
  

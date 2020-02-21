@@ -10,12 +10,12 @@
                     <table class="table table-sm">
                         
                             <tr>
-                                <td><h5>Name: {{currentUser.username}}</h5></td>
-                                <td><h5>Rank: {{rank}}</h5></td>
+                                <th><h5>Name: {{currentUser.username}}</h5></th>
+                                <th><h5>Rank: {{rank}}</h5></th>
                             </tr>
                             <tr>
-                                <td><h5>Score: {{currentUser.score}}</h5></td>
-                                <td><h5 *ngIf = "showNextLevel">Points to {{nextLevel}}: {{pointsToNextLevel}}</h5></td>
+                                <th><h5>Score: {{currentUser.score}}</h5></th>
+                                <th><h5 *ngIf = "showNextLevel">Points to {{nextLevel}}: {{pointsToNextLevel}}</h5></th>
                             </tr>
                     
                     </table>
@@ -23,7 +23,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-9">
-                    <h5>Your Inventory:</h5>
+                    <b><h5>Your Inventory:</h5></b>
                         <table class="table table-sm table-hover" >
                             <thead>
                                 <tr>

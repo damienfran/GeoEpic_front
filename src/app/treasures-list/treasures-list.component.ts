@@ -119,7 +119,7 @@ export class TreasuresListComponent implements OnInit {
     this.currentUser = tempc;
 
     // Check if user is qualified to become a Poke Sensei or minor
-    if (this.currentUser.score > 9999){
+    if (this.currentUser.score > 9999 && this.currentUser.manager == false){
       this.currentUser.manager = true;
       tempc = await this.gss.updateClient(this.currentUser);
       this.currentUser = tempc;
